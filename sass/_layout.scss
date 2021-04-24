@@ -1,0 +1,128 @@
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rem;
+
+  .movie-container {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    height: $heightForMovieAndSeatContainer;
+    width: $widthForMovieAndSeatContainer;
+    background: $bColorForMovieAndSeatContainer;
+    border-radius: $borderRadiusForContainers;
+
+    .select-box {
+      align-self: center;
+    }
+
+    #movieShowcase {
+      height: 300px;
+      width: 250px;
+      margin-top: 25px;
+      background: $colorForMovieImgContainer;
+      align-self: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        height: 250px;
+        width: 190px;
+        align-self: center;
+      }
+    }
+
+    .movie-price {
+      align-self: center;
+    }
+  }
+
+  .seat-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    height: $heightForMovieAndSeatContainer;
+    width: $widthForMovieAndSeatContainer;
+    background: $bColorForMovieAndSeatContainer;
+    border-radius: $borderRadiusForContainers;
+
+    .movie-screen {
+      height: 90px;
+      width: 250px;
+      clip-path: polygon(0 0, 100% 0, 91% 84%, 9% 84%);
+      margin-top: 20px;
+      align-self: center;
+      background: lightblue;
+    }
+
+    .seat-layout {
+      height: 230px;
+      width: 370px;
+      border-radius: 10px;
+      background: $colorForMovieImgContainer;
+      align-self: center;
+
+      .seat-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .seat {
+         @include seat;
+         align-self: center;
+         cursor: pointer;
+        }
+
+        .occupied {
+          background: rgb(253, 114, 0);
+        }
+
+        .aisle-right {
+          margin-right: 15px;
+        }
+
+        .aisle-left {
+          margin-left: 15px;
+        }
+      }  
+    }
+    .showcase-container {
+      height: 40px;
+      width: 370px;
+      margin-top: 10px;
+      // background: rgb(180, 180, 231);
+      align-self: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .seat-showcase {
+        height: 30px;
+        width: 300px;
+        margin: 5px;
+        display: flex;
+
+        .example-seat {
+          @include seat;
+        }
+        .selected {
+          background: rgb(87, 123, 241);
+        }
+        .occupied {
+          background: rgb(253, 114, 0);
+        }
+
+      }
+    }
+  }
+}
+
+.price-container {
+  text-align: center;
+}
+
+.selected {
+  background: rgb(87, 123, 241)!important;
+}

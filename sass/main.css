@@ -1,0 +1,200 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.main-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10rem;
+}
+
+.main-container .movie-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-right: 10px;
+  height: 400px;
+  width: 400px;
+  background: #dac1bf;
+  border-radius: 20px;
+}
+
+.main-container .movie-container .select-box {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.main-container .movie-container #movieShowcase {
+  height: 300px;
+  width: 250px;
+  margin-top: 25px;
+  background: #fefbd8;
+  -ms-flex-item-align: center;
+      align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-container .movie-container #movieShowcase img {
+  height: 250px;
+  width: 190px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.main-container .movie-container .movie-price {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.main-container .seat-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 10px;
+  height: 400px;
+  width: 400px;
+  background: #dac1bf;
+  border-radius: 20px;
+}
+
+.main-container .seat-container .movie-screen {
+  height: 90px;
+  width: 250px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 91% 84%, 9% 84%);
+          clip-path: polygon(0 0, 100% 0, 91% 84%, 9% 84%);
+  margin-top: 20px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  background: lightblue;
+}
+
+.main-container .seat-container .seat-layout {
+  height: 230px;
+  width: 370px;
+  border-radius: 10px;
+  background: #fefbd8;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.main-container .seat-container .seat-layout .seat-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-container .seat-container .seat-layout .seat-row .seat {
+  height: 17px;
+  width: 17px;
+  margin: 3px;
+  border-radius: 50%;
+  background: #c8c8c8;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  cursor: pointer;
+}
+
+.main-container .seat-container .seat-layout .seat-row .occupied {
+  background: #fd7200;
+}
+
+.main-container .seat-container .seat-layout .seat-row .aisle-right {
+  margin-right: 15px;
+}
+
+.main-container .seat-container .seat-layout .seat-row .aisle-left {
+  margin-left: 15px;
+}
+
+.main-container .seat-container .showcase-container {
+  height: 40px;
+  width: 370px;
+  margin-top: 10px;
+  -ms-flex-item-align: center;
+      align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-container .seat-container .showcase-container .seat-showcase {
+  height: 30px;
+  width: 300px;
+  margin: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main-container .seat-container .showcase-container .seat-showcase .example-seat {
+  height: 17px;
+  width: 17px;
+  margin: 3px;
+  border-radius: 50%;
+  background: #c8c8c8;
+}
+
+.main-container .seat-container .showcase-container .seat-showcase .selected {
+  background: #577bf1;
+}
+
+.main-container .seat-container .showcase-container .seat-showcase .occupied {
+  background: #fd7200;
+}
+
+.price-container {
+  text-align: center;
+}
+
+.selected {
+  background: #577bf1 !important;
+}
+/*# sourceMappingURL=main.css.map */

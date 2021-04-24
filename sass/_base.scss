@@ -1,0 +1,23 @@
+$colorForMovieImgContainer: #fefbd8;
+$heightForMovieAndSeatContainer: 400px;
+$widthForMovieAndSeatContainer: 400px;
+$bColorForMovieAndSeatContainer: rgb(218, 193, 191);
+$borderRadiusForContainers: 20px;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+@mixin seat {
+  height: 17px;
+  width: 17px;
+  margin: 3px;
+  border-radius: 50%;
+  background: rgb(200, 200, 200);
+}
