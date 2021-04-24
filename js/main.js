@@ -1,6 +1,5 @@
 const movies = document.getElementById("movies");
 const seats = document.querySelectorAll(".seat:not(.occupied)");
-console.log(seats);
 // const moviePrice = document.getElementById("price");
 const totalPrice = document.getElementById("totalPrice");
 const numOfSeats = document.getElementById("numOfSeats");
@@ -14,8 +13,7 @@ let selectedtotalSeatsArr = [];
 let totalMoviePrice, totalNumOfSeats;
 
 movies.addEventListener("change", () => {
-  document.getElementById("price").innerText = movies.value;
-  showTotalPrice();
+  showPrice();
   showMovieImage();
 });
 
@@ -36,8 +34,9 @@ seats.forEach((seat) => {
     e.target.classList.toggle("selected");
     localStorage.setItem("storedSeatsArr", JSON.stringify(selectedtotalSeatsArr));
 
-    showTotalPrice();
+    showPrice();
 
+    // Culculate the number of seats selected
     totalNumOfSeats = selectedtotalSeatsArr.length;
     numOfSeats.innerText = totalNumOfSeats;
 
@@ -48,7 +47,8 @@ seats.forEach((seat) => {
 });
 
 // Show total price
-const showTotalPrice = () => {
+const showPrice = () => {
+  document.getElementById("price").innerText = movies.value;
   totalMoviePrice = (movies.value) * (selectedtotalSeatsArr.length);
   console.log(totalPrice);
   totalPrice.innerText = totalMoviePrice;
@@ -76,11 +76,13 @@ const showMovieImage = () => {
       imgElement.src = "../img/interstellar.jpeg";
       break;
   }
+  localStorage.setItem("storedSelectedIndex", movies.selectedIndex);
 }
-
 // Load / Reload
 window.addEventListener("load", () => {
-  imgElement.src = "../img/forrestGump.jpeg";
+  movies.selectedIndex = localStorage.getItem("storedSelectedIndex");
+  showMovieImage();
+  showPrice();
   if (localStorage.getItem("storedSeatsArr") !== null) {
     selectedtotalSeatsArr = JSON.parse(localStorage.getItem("storedSeatsArr"));
     for (let i = 0; i < selectedtotalSeatsArr.length; i++ ) {
@@ -88,5 +90,8 @@ window.addEventListener("load", () => {
       console.log(selectedtotalSeatsArr);
       seats[selectedtotalSeatsArr[i]].classList.toggle("selected");
     }
+    totalNumOfSeats = selectedtotalSeatsArr.length;
+    numOfSeats.innerText = totalNumOfSeats;
+    showPrice();
   }
 })
