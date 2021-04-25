@@ -1,8 +1,9 @@
 $colorForMovieImgContainer: #fefbd8;
-$heightForMovieAndSeatContainer: 400px;
-$widthForMovieAndSeatContainer: 400px;
-$bColorForMovieAndSeatContainer: rgb(218, 193, 191);
-$borderRadiusForContainers: 20px;
+$bColorForMovieAndSeatContainer: rgb(240, 219, 218);
+$colorForOccupiedSeats: rgb(253, 114, 0);
+
+$breakpoint-tablet: 820px;
+$breakpoint-mobile: 600px;
 
 * {
   box-sizing: border-box;
@@ -14,6 +15,12 @@ body {
   height: 100vh;
 }
 
+@mixin sizeForMovieAndSeatContainer {
+  height: 400px;
+  width: 400px;
+  border-radius: 20px;
+}
+
 @mixin seat {
   height: 17px;
   width: 17px;
@@ -21,3 +28,10 @@ body {
   border-radius: 50%;
   background: rgb(200, 200, 200);
 }
+
+@mixin display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

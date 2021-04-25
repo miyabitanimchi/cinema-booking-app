@@ -1,17 +1,13 @@
 .main-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include display;
   margin-top: 10rem;
 
   .movie-container {
     display: flex;
     flex-direction: column;
     margin-right: 10px;
-    height: $heightForMovieAndSeatContainer;
-    width: $widthForMovieAndSeatContainer;
+    @include sizeForMovieAndSeatContainer;
     background: $bColorForMovieAndSeatContainer;
-    border-radius: $borderRadiusForContainers;
 
     .select-box {
       align-self: center;
@@ -23,9 +19,8 @@
       margin-top: 25px;
       background: $colorForMovieImgContainer;
       align-self: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      border-radius: 10px;
+      @include display;
 
       img {
         height: 250px;
@@ -43,10 +38,9 @@
     display: flex;
     flex-direction: column;
     margin-left: 10px;
-    height: $heightForMovieAndSeatContainer;
-    width: $widthForMovieAndSeatContainer;
+    @include sizeForMovieAndSeatContainer;
     background: $bColorForMovieAndSeatContainer;
-    border-radius: $borderRadiusForContainers;
+   
 
     .movie-screen {
       height: 90px;
@@ -65,10 +59,7 @@
       align-self: center;
 
       .seat-row {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
+        @include display;
         .seat {
          @include seat;
          align-self: center;
@@ -76,7 +67,7 @@
         }
 
         .occupied {
-          background: rgb(253, 114, 0);
+          background: $colorForOccupiedSeats;
         }
 
         .aisle-right {
@@ -92,11 +83,8 @@
       height: 40px;
       width: 370px;
       margin-top: 10px;
-      // background: rgb(180, 180, 231);
       align-self: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include display;
 
       .seat-showcase {
         height: 30px;
@@ -111,9 +99,8 @@
           background: rgb(87, 123, 241);
         }
         .occupied {
-          background: rgb(253, 114, 0);
+          background: $colorForOccupiedSeats;
         }
-
       }
     }
   }

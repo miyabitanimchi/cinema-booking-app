@@ -33,8 +33,8 @@ body {
   margin-right: 10px;
   height: 400px;
   width: 400px;
-  background: #dac1bf;
   border-radius: 20px;
+  background: #f0dbda;
 }
 
 .main-container .movie-container .select-box {
@@ -50,6 +50,7 @@ body {
   background: #fefbd8;
   -ms-flex-item-align: center;
       align-self: center;
+  border-radius: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -86,8 +87,8 @@ body {
   margin-left: 10px;
   height: 400px;
   width: 400px;
-  background: #dac1bf;
   border-radius: 20px;
+  background: #f0dbda;
 }
 
 .main-container .seat-container .movie-screen {
