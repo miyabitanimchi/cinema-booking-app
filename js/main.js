@@ -1,12 +1,9 @@
 const movies = document.getElementById("movies");
 const seats = document.querySelectorAll(".seat:not(.occupied)");
-// const moviePrice = document.getElementById("price");
-const totalPrice = document.getElementById("totalPrice");
 const numOfSeats = document.getElementById("numOfSeats");
-const movieShowcase = document.getElementById("movieShowcase");
 
 const imgElement = document.createElement("img");
-movieShowcase.appendChild(imgElement);
+document.getElementById("movieShowcase").appendChild(imgElement);
 
 let totalSeatsArr = [];
 let selectedtotalSeatsArr = [];
@@ -19,39 +16,34 @@ movies.addEventListener("change", () => {
 
 seats.forEach((seat) => {
   totalSeatsArr.push(seat);
-  
   seat.addEventListener("click", (e) => {
-    console.log(seats);
     if (e.target.classList.contains("selected")) {
       let index = selectedtotalSeatsArr.findIndex((seat) => {
         return seat === totalSeatsArr.indexOf(e.target);
       });
-      console.log(index);
       selectedtotalSeatsArr.splice(index, 1);
     } else {
       selectedtotalSeatsArr.push(totalSeatsArr.indexOf(e.target));
     }
     e.target.classList.toggle("selected");
     localStorage.setItem("storedSeatsArr", JSON.stringify(selectedtotalSeatsArr));
-
     showPrice();
-
-    // Culculate the number of seats selected
-    totalNumOfSeats = selectedtotalSeatsArr.length;
-    numOfSeats.innerText = totalNumOfSeats;
-
-    console.log(e.target);
-    console.log(selectedtotalSeatsArr);
-    console.log(totalSeatsArr);
+    showNumOfSeats();
   });
 });
+
+// Show the total number of the seats selected
+const showNumOfSeats = () => {
+  // Culculate the number of seats selected
+  totalNumOfSeats = selectedtotalSeatsArr.length;
+  numOfSeats.innerText = totalNumOfSeats;
+}
 
 // Show total price
 const showPrice = () => {
   document.getElementById("price").innerText = movies.value;
   totalMoviePrice = (movies.value) * (selectedtotalSeatsArr.length);
-  console.log(totalPrice);
-  totalPrice.innerText = totalMoviePrice;
+  document.getElementById("totalPrice").innerText = totalMoviePrice;
 }
 
 // Show a movie image 
@@ -90,8 +82,7 @@ window.addEventListener("load", () => {
       console.log(selectedtotalSeatsArr);
       seats[selectedtotalSeatsArr[i]].classList.toggle("selected");
     }
-    totalNumOfSeats = selectedtotalSeatsArr.length;
-    numOfSeats.innerText = totalNumOfSeats;
+    showNumOfSeats();
     showPrice();
   }
-})
+});
