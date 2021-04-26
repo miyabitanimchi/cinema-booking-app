@@ -1,145 +1,149 @@
-.main-container {
-  @include display;
-  margin-top: 10rem;
-  @include max-screen($breakpoint-tablet) {
-    flex-direction: column;
-  }
-  
-  .movie-container {
-    display: flex;
-    flex-direction: column;
-    margin-right: 10px;
-    @include sizeForMovieAndSeatContainer;
+body {
+  background: whitesmoke;
+
+  .main-container {
+    @include display;
+    margin-top: 10rem;
     @include max-screen($breakpoint-tablet) {
-      margin-right: 0;
+      flex-direction: column;
     }
-    @include max-screen($breakpoint-mobile) {
-      @include sizeForMovieAndSeatContainer-minsize;
-    }
-  
-    background: $bColorForMovieAndSeatContainer;
-
-    .select-box {
-      align-self: center;
-      @include max-screen($breakpoint-mobile) {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    
+    .movie-container {
+      display: flex;
+      flex-direction: column;
+      margin-right: 10px;
+      @include sizeForMovieAndSeatContainer;
+      @include max-screen($breakpoint-tablet) {
+        margin-right: 0;
       }
-    }
+      @include max-screen($breakpoint-mobile) {
+        @include sizeForMovieAndSeatContainer-minsize;
+      }
+    
+      background: $bColorForMovieAndSeatContainer;
 
-    #movieShowcase {
-      height: 300px;
-      width: 250px;
-      margin-top: 25px;
-      background: $colorForMovieImgContainer;
-      align-self: center;
-      border-radius: 10px;
-      @include display;
-
-      img {
-        height: 250px;
-        width: 190px;
+      .select-box {
         align-self: center;
         @include max-screen($breakpoint-mobile) {
-          height: 200px;
-          width: 160px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
       }
-    }
 
-    .movie-price {
-      align-self: center;
-    }
-  }
-
-  .seat-container {
-    display: flex;
-    flex-direction: column;
-    margin-left: 10px;
-    @include sizeForMovieAndSeatContainer;
-    @include max-screen($breakpoint-tablet) {
-      margin-left: 0;
-      margin-top: 10px;
-    }
-    @include max-screen($breakpoint-mobile) {
-      @include sizeForMovieAndSeatContainer-minsize;
-    }
-    background: $bColorForMovieAndSeatContainer;
-   
-
-    .movie-screen {
-      height: 90px;
-      width: 250px;
-      clip-path: polygon(0 0, 100% 0, 91% 84%, 9% 84%);
-      margin-top: 20px;
-      align-self: center;
-      background: lightblue;
-    }
-
-    .seat-layout {
-      height: 230px;
-      width: 370px;
-      border-radius: 10px;
-      background: $colorForMovieImgContainer;
-      align-self: center;
-      @include max-screen($breakpoint-mobile) {
-        width: 340px;
-      }
-
-      .seat-row {
+      #movieShowcase {
+        height: 300px;
+        width: 250px;
+        margin-top: 25px;
+        background: $colorForMovieImgContainer;
+        align-self: center;
+        border-radius: 10px;
         @include display;
-        .seat {
-         @include seat;
-         align-self: center;
-         cursor: pointer;
-        }
 
-        .occupied {
-          background: $colorForOccupiedSeats;
+        img {
+          height: 250px;
+          width: 190px;
+          align-self: center;
+          @include max-screen($breakpoint-mobile) {
+            height: 200px;
+            width: 160px;
+          }
         }
+      }
 
-        .aisle-right {
-          margin-right: 15px;
-        }
-
-        .aisle-left {
-          margin-left: 15px;
-        }
-      }  
+      .movie-price {
+        align-self: center;
+      }
     }
-    .showcase-container {
-      height: 40px;
-      width: 370px;
-      margin-top: 10px;
-      align-self: center;
-      @include display;
 
-      .seat-showcase {
-        height: 30px;
-        width: 300px;
-        margin: 5px;
-        display: flex;
+    .seat-container {
+      display: flex;
+      flex-direction: column;
+      margin-left: 10px;
+      @include sizeForMovieAndSeatContainer;
+      @include max-screen($breakpoint-tablet) {
+        margin-left: 0;
+        margin-top: 10px;
+      }
+      @include max-screen($breakpoint-mobile) {
+        @include sizeForMovieAndSeatContainer-minsize;
+      }
+      background: $bColorForMovieAndSeatContainer;
+    
 
-        .example-seat {
+      .movie-screen {
+        height: 90px;
+        width: 250px;
+        clip-path: polygon(0 0, 100% 0, 91% 84%, 9% 84%);
+        margin-top: 20px;
+        align-self: center;
+        background: lightblue;
+      }
+
+      .seat-layout {
+        height: 230px;
+        width: 370px;
+        border-radius: 10px;
+        background: $colorForMovieImgContainer;
+        align-self: center;
+        @include max-screen($breakpoint-mobile) {
+          width: 340px;
+        }
+
+        .seat-row {
+          @include display;
+          .seat {
           @include seat;
-        }
+          align-self: center;
+          cursor: pointer;
+          }
 
-        .selected {
-          background: rgb(87, 123, 241);
-        }
-        .occupied {
-          background: $colorForOccupiedSeats;
+          .occupied {
+            background: $colorForOccupiedSeats;
+          }
+
+          .aisle-right {
+            margin-right: 15px;
+          }
+
+          .aisle-left {
+            margin-left: 15px;
+          }
+        }  
+      }
+      .showcase-container {
+        height: 40px;
+        width: 370px;
+        margin-top: 10px;
+        align-self: center;
+        @include display;
+
+        .seat-showcase {
+          height: 30px;
+          width: 300px;
+          margin: 5px;
+          display: flex;
+
+          .example-seat {
+            @include seat;
+          }
+
+          .selected {
+            background: rgb(87, 123, 241);
+          }
+          .occupied {
+            background: $colorForOccupiedSeats;
+          }
         }
       }
     }
   }
-}
 
-.price-container {
-  text-align: center;
-}
+  .price-container {
+    text-align: center;
+  }
 
-.selected {
-  background: rgb(87, 123, 241)!important;
+  .selected {
+    background: rgb(87, 123, 241)!important;
+  }
 }

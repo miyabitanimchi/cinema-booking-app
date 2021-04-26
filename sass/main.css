@@ -9,7 +9,11 @@ body {
   height: 100vh;
 }
 
-.main-container {
+body {
+  background: whitesmoke;
+}
+
+body .main-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -23,7 +27,7 @@ body {
 }
 
 @media screen and (max-width: 820px) {
-  .main-container {
+  body .main-container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -31,7 +35,7 @@ body {
   }
 }
 
-.main-container .movie-container {
+body .main-container .movie-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -43,31 +47,31 @@ body {
   height: 400px;
   width: 400px;
   border-radius: 20px;
-  background: #e8f1fc;
+  background: #d4e2f3;
 }
 
 @media screen and (max-width: 820px) {
-  .main-container .movie-container {
+  body .main-container .movie-container {
     margin-right: 0;
   }
 }
 
 @media screen and (max-width: 400px) {
-  .main-container .movie-container {
+  body .main-container .movie-container {
     height: 350px;
     width: 350px;
     border-radius: 10px;
   }
 }
 
-.main-container .movie-container .select-box {
+body .main-container .movie-container .select-box {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
 }
 
 @media screen and (max-width: 400px) {
-  .main-container .movie-container .select-box {
+  body .main-container .movie-container .select-box {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -81,7 +85,7 @@ body {
   }
 }
 
-.main-container .movie-container #movieShowcase {
+body .main-container .movie-container #movieShowcase {
   height: 300px;
   width: 250px;
   margin-top: 25px;
@@ -100,7 +104,7 @@ body {
           align-items: center;
 }
 
-.main-container .movie-container #movieShowcase img {
+body .main-container .movie-container #movieShowcase img {
   height: 250px;
   width: 190px;
   -ms-flex-item-align: center;
@@ -109,19 +113,19 @@ body {
 }
 
 @media screen and (max-width: 400px) {
-  .main-container .movie-container #movieShowcase img {
+  body .main-container .movie-container #movieShowcase img {
     height: 200px;
     width: 160px;
   }
 }
 
-.main-container .movie-container .movie-price {
+body .main-container .movie-container .movie-price {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
 }
 
-.main-container .seat-container {
+body .main-container .seat-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -133,25 +137,25 @@ body {
   height: 400px;
   width: 400px;
   border-radius: 20px;
-  background: #e8f1fc;
+  background: #d4e2f3;
 }
 
 @media screen and (max-width: 820px) {
-  .main-container .seat-container {
+  body .main-container .seat-container {
     margin-left: 0;
     margin-top: 10px;
   }
 }
 
 @media screen and (max-width: 400px) {
-  .main-container .seat-container {
+  body .main-container .seat-container {
     height: 350px;
     width: 350px;
     border-radius: 10px;
   }
 }
 
-.main-container .seat-container .movie-screen {
+body .main-container .seat-container .movie-screen {
   height: 90px;
   width: 250px;
   -webkit-clip-path: polygon(0 0, 100% 0, 91% 84%, 9% 84%);
@@ -163,7 +167,7 @@ body {
   background: lightblue;
 }
 
-.main-container .seat-container .seat-layout {
+body .main-container .seat-container .seat-layout {
   height: 230px;
   width: 370px;
   border-radius: 10px;
@@ -174,12 +178,12 @@ body {
 }
 
 @media screen and (max-width: 400px) {
-  .main-container .seat-container .seat-layout {
+  body .main-container .seat-container .seat-layout {
     width: 340px;
   }
 }
 
-.main-container .seat-container .seat-layout .seat-row {
+body .main-container .seat-container .seat-layout .seat-row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -191,7 +195,7 @@ body {
           align-items: center;
 }
 
-.main-container .seat-container .seat-layout .seat-row .seat {
+body .main-container .seat-container .seat-layout .seat-row .seat {
   height: 17px;
   width: 17px;
   margin: 3px;
@@ -203,19 +207,19 @@ body {
   cursor: pointer;
 }
 
-.main-container .seat-container .seat-layout .seat-row .occupied {
+body .main-container .seat-container .seat-layout .seat-row .occupied {
   background: #fd7200;
 }
 
-.main-container .seat-container .seat-layout .seat-row .aisle-right {
+body .main-container .seat-container .seat-layout .seat-row .aisle-right {
   margin-right: 15px;
 }
 
-.main-container .seat-container .seat-layout .seat-row .aisle-left {
+body .main-container .seat-container .seat-layout .seat-row .aisle-left {
   margin-left: 15px;
 }
 
-.main-container .seat-container .showcase-container {
+body .main-container .seat-container .showcase-container {
   height: 40px;
   width: 370px;
   margin-top: 10px;
@@ -232,7 +236,7 @@ body {
           align-items: center;
 }
 
-.main-container .seat-container .showcase-container .seat-showcase {
+body .main-container .seat-container .showcase-container .seat-showcase {
   height: 30px;
   width: 300px;
   margin: 5px;
@@ -241,7 +245,7 @@ body {
   display: flex;
 }
 
-.main-container .seat-container .showcase-container .seat-showcase .example-seat {
+body .main-container .seat-container .showcase-container .seat-showcase .example-seat {
   height: 17px;
   width: 17px;
   margin: 3px;
@@ -249,19 +253,19 @@ body {
   background: #c8c8c8;
 }
 
-.main-container .seat-container .showcase-container .seat-showcase .selected {
+body .main-container .seat-container .showcase-container .seat-showcase .selected {
   background: #577bf1;
 }
 
-.main-container .seat-container .showcase-container .seat-showcase .occupied {
+body .main-container .seat-container .showcase-container .seat-showcase .occupied {
   background: #fd7200;
 }
 
-.price-container {
+body .price-container {
   text-align: center;
 }
 
-.selected {
+body .selected {
   background: #577bf1 !important;
 }
 /*# sourceMappingURL=main.css.map */
