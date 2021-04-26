@@ -1,9 +1,6 @@
 $colorForMovieImgContainer: #fefbd8;
-$bColorForMovieAndSeatContainer: rgb(240, 219, 218);
+$bColorForMovieAndSeatContainer: rgb(232, 241, 252);
 $colorForOccupiedSeats: rgb(253, 114, 0);
-
-$breakpoint-tablet: 820px;
-$breakpoint-mobile: 600px;
 
 * {
   box-sizing: border-box;
@@ -21,6 +18,12 @@ body {
   border-radius: 20px;
 }
 
+@mixin sizeForMovieAndSeatContainer-minsize {
+  height: 350px;
+  width: 350px;
+  border-radius: 10px;
+}
+
 @mixin seat {
   height: 17px;
   width: 17px;
@@ -35,3 +38,12 @@ body {
   align-items: center;
 }
 
+// Media query
+$breakpoint-tablet: 820px;
+$breakpoint-mobile: 400px;
+
+@mixin max-screen($break-point) {
+  @media screen and (max-width: $break-point) {
+    @content;
+  }
+}
