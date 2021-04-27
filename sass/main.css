@@ -268,4 +268,18 @@ body .price-container {
 body .selected {
   background: #577bf1 !important;
 }
+
+#movie-collection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow-x: scroll;
+}
+
+#movie-collection img {
+  margin: 5px;
+}
 /*# sourceMappingURL=main.css.map */

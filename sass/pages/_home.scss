@@ -1,0 +1,9 @@
+#movie-collection {
+  display: flex;
+  justify-content: center;
+  overflow-x: scroll;
+
+  img {
+    margin: 5px
+  }
+}
