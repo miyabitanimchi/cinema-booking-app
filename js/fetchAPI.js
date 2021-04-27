@@ -35,7 +35,7 @@ const showMovieContents = (data) => {
   for (i = 0; i < data.results.length; i++) {
     const imgElement2 = document.createElement("img");
     document.getElementById("movie-collection").appendChild(imgElement2);
-    imgElement2.src = `https://image.tmdb.org/t/p/w200/${data.results[i].poster_path}`;
+    imgElement2.src = `https://image.tmdb.org/t/p/w300/${data.results[i].poster_path}`;
     console.log(imgElement2.src);
   }
 }
