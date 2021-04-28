@@ -7,6 +7,7 @@
 #movie-collection-now-playing {
   display: flex;
   overflow-x: scroll;
+  overflow-y: hidden;
  
   .position-for-img-and-caption {
     position: relative;
@@ -39,11 +40,10 @@
   }
 }
 
-
-
 #movie-collection-popular {
   display: flex;
   overflow-x: scroll;
+  overflow-y: hidden;
  
   .position-for-img-and-caption-for-popular {
     position: relative;
@@ -72,12 +72,17 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+
+      // &:hover + img {
+      //   transition: 0.2s;
+      //   transform: scale(1.05);
+      // }
     }
   }
 }
 
 h1 {
-  margin-top: 30px;
+  margin-top: 100px;
   text-align: center;
 }
 
@@ -93,4 +98,8 @@ main {
       font-size: 60px;
     }
   }
+}
+
+footer {
+  position: sticky;
 }
