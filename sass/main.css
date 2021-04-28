@@ -292,7 +292,14 @@ body .selected {
           transform: scale(1.05);
 }
 
+#movie-collection .position-for-img-and-caption img:hover + .movie-title {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  opacity: 1;
+}
+
 #movie-collection .position-for-img-and-caption .movie-title {
+  opacity: 0;
   color: white;
   font-size: 30px;
   position: absolute;

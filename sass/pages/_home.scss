@@ -13,9 +13,15 @@
         transition: 0.2s;
         transform: scale(1.05);
       }
+
+      &:hover + .movie-title {
+        transition: 0.2s;
+        opacity: 1;
+      }
     }
 
     .movie-title {
+      opacity: 0;
       color: white;
       font-size: 30px;
       position: absolute;
@@ -31,6 +37,8 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
+
+    
   }
 
   
