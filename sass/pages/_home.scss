@@ -1,3 +1,9 @@
+.navbar {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+}
+
 #movie-collection {
   display: flex;
   overflow-x: scroll;
@@ -8,6 +14,7 @@
     img {
       margin: 20px 5px 0px 5px;
       cursor: pointer;
+      border-radius: 10px;
   
       &:hover {
         transition: 0.2s;
@@ -37,13 +44,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
-
-    
   }
-
-  
-
-  
 }
 
 h1 {
@@ -51,14 +52,12 @@ h1 {
   text-align: center;
 }
 
-
-
-
-
-// .carousel-inner {
-//   height: 400px;
-
-//   // img {
-//   //   height: 200px;
-//   // }
-// }
+main {
+  padding-top: 70px;
+  .carousel-inner {
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 20px;
+  }
+}

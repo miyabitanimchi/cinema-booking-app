@@ -4,17 +4,15 @@ const fetchAPI = async () => {
   try {
     const response = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}`);
     const response2 = await axios.get(`https://api.themoviedb.org/3/movie/460465/videos?api_key=${API_KEY}&language=en-US`);
-    const response3 = await axios.get(`https://api.themoviedb.org/3/movie/460465/reviews?api_key=${API_KEY}&language=en-US&page=1`)
-    console.log(response3.data);
 
     const movieData = response.data;
     const videoData = response2.data.results[1].key;
 
-    document.getElementById("testIframe").src = `https://www.youtube.com/embed/${videoData}?modestbranding=1&rel=0&showinfo=0&autoplay=1&mute=1&playsinline=1&loop=1&playlist=${videoData}&controls=0&disablekb=1`;
+    // document.getElementById("testIframe").src = `https://www.youtube.com/embed/${videoData}?modestbranding=1&rel=0&showinfo=0&autoplay=1&mute=1&playsinline=1&loop=1&playlist=${videoData}&controls=0&disablekb=1`;
     console.log(movieData);
     console.log(videoData);
     showMovieContents(movieData);
-    appendImg(movieData);
+    appendImgAndInfo(movieData);
     
   } 
   catch(errors) {
@@ -22,9 +20,20 @@ const fetchAPI = async () => {
   }
 }
 
+
+// const showTopInfo = (data) => {
+//   const elForTopImg = document.querySelectorAll(".topimage");
+
+//   for (i = 0; i < elForTopImg.length; i++) {
+//     const randomNum = Math.floor(Math.random() * elForTopImg.length);
+//     console.log(randomNum);
+//   }
+// }
+// showTopInfo();
+
 const showMovieContents = (data) => {
   
-  for (i = 0; i < data.results.length; i++) {
+  for (let i = 0; i < data.results.length; i++) {
     const divElement = document.createElement("div");
     divElement.classList.add("position-for-img-and-caption");
     document.getElementById("movie-collection").appendChild(divElement);
@@ -32,17 +41,11 @@ const showMovieContents = (data) => {
   }
 }
 
-const showMovieDescription = (data) => {
-  const pElement = document.createElement("p");
-  pElement.classList.add("movie-title");
-  pElement.innerText = data.results[i].original_title;
-}
-
-const appendImg = (data) => {
+const appendImgAndInfo = (data) => {
   const el = document.querySelectorAll(".position-for-img-and-caption");
   console.log(el);
 
-  for (i = 0; i < el.length; i++) {
+  for (let i = 0; i < el.length; i++) {
     const imgElement = document.createElement("img");
     const pElement = document.createElement("p");
     const overviewElement = document.createElement("p");
@@ -53,7 +56,7 @@ const appendImg = (data) => {
 
 
     el[i].appendChild(imgElement);
-    imgElement.src = `https://image.tmdb.org/t/p/w300/${data.results[i].poster_path}`;
+    imgElement.src = `https://image.tmdb.org/t/p/w200/${data.results[i].poster_path}`;
     el[i].appendChild(pElement);
     pElement.innerText = data.results[i].original_title;
     // el[i].appendChild(overviewElement);
@@ -61,11 +64,12 @@ const appendImg = (data) => {
     console.log(el[i]);
   }
 
-  // for (i = 0; i < data.results.length; i++) {
-  //   document.querySelectorAll(".position-for-img-and-caption").appendChild(imgElement)
-  //   imgElement.src = `https://image.tmdb.org/t/p/w300/${data.results[i].poster_path}`;
-  //   console.log(imgElement);
-  // }
+  const elForTopImg = document.querySelectorAll(".topimage");
+  for (let i = 0; i < elForTopImg.length; i++) {
+    let randomNum = Math.floor(Math.random() * el.length);
+    console.log(randomNum);
+    elForTopImg[i].src = `https://image.tmdb.org/t/p/w500/${data.results[randomNum].backdrop_path}`
+  }
 }
 
 fetchAPI();
