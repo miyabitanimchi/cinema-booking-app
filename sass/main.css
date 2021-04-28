@@ -275,37 +275,37 @@ body .selected {
   width: 100%;
 }
 
-#movie-collection {
+#movie-collection-now-playing {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   overflow-x: scroll;
 }
 
-#movie-collection .position-for-img-and-caption {
+#movie-collection-now-playing .position-for-img-and-caption {
   position: relative;
 }
 
-#movie-collection .position-for-img-and-caption img {
+#movie-collection-now-playing .position-for-img-and-caption img {
   margin: 20px 5px 0px 5px;
   cursor: pointer;
   border-radius: 10px;
 }
 
-#movie-collection .position-for-img-and-caption img:hover {
+#movie-collection-now-playing .position-for-img-and-caption img:hover {
   -webkit-transition: 0.2s;
   transition: 0.2s;
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
 }
 
-#movie-collection .position-for-img-and-caption img:hover + .movie-title {
+#movie-collection-now-playing .position-for-img-and-caption img:hover + .movie-title {
   -webkit-transition: 0.2s;
   transition: 0.2s;
   opacity: 1;
 }
 
-#movie-collection .position-for-img-and-caption .movie-title {
+#movie-collection-now-playing .position-for-img-and-caption .movie-title {
   opacity: 0;
   color: white;
   font-size: 30px;
@@ -316,7 +316,7 @@ body .selected {
           transform: translate(-50%, -50%);
 }
 
-#movie-collection .position-for-img-and-caption .movie-overview {
+#movie-collection-now-playing .position-for-img-and-caption .movie-overview {
   color: white;
   position: absolute;
   top: 50%;
@@ -339,5 +339,9 @@ main .carousel-inner {
   margin-right: auto;
   margin-left: auto;
   border-radius: 20px;
+}
+
+main .carousel-inner .toptitle {
+  font-size: 60px;
 }
 /*# sourceMappingURL=main.css.map */
