@@ -1,7 +1,6 @@
 const API_KEY = "6de0031ff9ff7891e34f8d09f9cbc39b";
 
 
-
 const fetchAPI = async () => {
   try {
     const response = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}`);
@@ -17,6 +16,8 @@ const fetchAPI = async () => {
     foundationForNowPlaying(movieData);
     appendImgAndInfoFprNowPlaying(movieData);
     foundationForMostPopular(movieData);
+
+    appendImgAndInfoForPopular(response3.data);
   } 
   catch(errors) {
     console.log(`Oops, errors! ${errors}`);
@@ -66,12 +67,31 @@ const appendImgAndInfoFprNowPlaying = (data) => {
   }
 }
 
+
 const foundationForMostPopular = (data) => {
   for (let i = 0; i < data.results.length; i++) {
     const divElementForMostPopular = document.createElement("div");
-    divElementForMostPopular.classList.add("position-for-img-and-caption");
+    divElementForMostPopular.classList.add("position-for-img-and-caption-for-popular");
     document.getElementById("movie-collection-popular").appendChild(divElementForMostPopular);
     console.log(divElementForMostPopular);
+  }
+}
+
+
+const appendImgAndInfoForPopular = (data) => {
+  const elForPopular = document.querySelectorAll(".position-for-img-and-caption-for-popular");
+  console.log(elForPopular);
+
+  for (let i = 0; i < elForPopular.length; i++) {
+    const imgElementForPopular = document.createElement("img");
+    const pElementForPopular = document.createElement("p");
+    pElementForPopular.classList.add("movie-title-for-popular");
+
+    elForPopular[i].appendChild(imgElementForPopular);
+    imgElementForPopular.src = `https://image.tmdb.org/t/p/w200/${data.results[i].poster_path}`;
+    elForPopular[i].appendChild(pElementForPopular);
+    pElementForPopular.innerText = data.results[i].title;
+    console.log(elForPopular[i]);
   }
 }
 
