@@ -1,5 +1,11 @@
 const API_KEY = "6de0031ff9ff7891e34f8d09f9cbc39b";
 
+// var myModal = document.getElementById('myModal')
+// var myInput = document.getElementById('myInput')
+
+// myModal.addEventListener('shown.bs.modal', function () {
+//   myInput.focus()
+// })
 
 const fetchAPI = async () => {
   try {
