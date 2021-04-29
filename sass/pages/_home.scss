@@ -7,24 +7,29 @@
 #movie-collection-now-playing {
   display: flex;
   overflow-x: scroll;
-  overflow-y: hidden;
+  overflow-y: visible;
+  padding-bottom: 20px;
  
   .position-for-img-and-caption {
     position: relative;
+    transition: 0s;
    
     img {
       margin: 20px 5px 0px 5px;
       cursor: pointer;
       border-radius: 10px;
+      transition: 0s;
+      transition-duration: 0.2s;
+      transition-delay: 0.4s;
+      
   
       &:hover {
-        transition: 0.2s;
         transform: scale(1.05);
       }
 
       &:hover + .movie-title {
-        transition: 0.2s;
         opacity: 1;
+        
       }
     }
 
@@ -36,6 +41,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      transition-duration: 0.2s;
+      transition-delay: 0.4s;
     }
   }
 }
@@ -44,7 +51,8 @@
   display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
- 
+  padding-bottom: 20px;
+
   .position-for-img-and-caption-for-popular {
     position: relative;
    
@@ -52,14 +60,14 @@
       margin: 20px 5px 0px 5px;
       cursor: pointer;
       border-radius: 10px;
+      transition-duration: 0.2s;
+      transition-delay: 0.4s;
   
       &:hover {
-        transition: 0.2s;
         transform: scale(1.05);
       }
 
       &:hover + .movie-title-for-popular {
-        transition: 0.2s;
         opacity: 1;
       }
     }
@@ -72,6 +80,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      transition-duration: 0.2s;
+      transition-delay: 0.4s;
 
       // &:hover + img {
       //   transition: 0.2s;

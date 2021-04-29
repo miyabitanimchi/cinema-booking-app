@@ -1,12 +1,5 @@
 const API_KEY = "6de0031ff9ff7891e34f8d09f9cbc39b";
 
-// var myModal = document.getElementById('myModal')
-// var myInput = document.getElementById('myInput')
-
-// myModal.addEventListener('shown.bs.modal', function () {
-//   myInput.focus()
-// })
-
 const fetchAPI = async () => {
   try {
     const response = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}`);
@@ -32,10 +25,10 @@ const fetchAPI = async () => {
 
 const foundationForNowPlaying = (data) => {
   for (let i = 0; i < data.results.length; i++) {
-    const divElementForMostPopular = document.createElement("div");
-    divElementForMostPopular.classList.add("position-for-img-and-caption");
-    document.getElementById("movie-collection-now-playing").appendChild(divElementForMostPopular);
-    console.log(divElementForMostPopular);
+    const divElementForNowPlaying = document.createElement("div");
+    divElementForNowPlaying.classList.add("position-for-img-and-caption");
+    document.getElementById("movie-collection-now-playing").appendChild(divElementForNowPlaying);
+    console.log(divElementForNowPlaying);
   }
 }
 
