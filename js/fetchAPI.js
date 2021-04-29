@@ -12,71 +12,57 @@ const fetchAPI = async () => {
 
     console.log(movieData);
     // console.log(videoData);
-    appendImgAndInfoFprNowPlaying(movieData);
-    appendImgAndInfoForPopular(response3.data);
+    buildTopPage(movieData);
+    createElements(movieData, "movie-collection-now-playing", "position-for-img-and-caption", ".position-for-img-and-caption", "mask", ".mask");
+    createElements(response3.data, "movie-collection-popular", "position-for-img-and-caption-for-popular", ".position-for-img-and-caption-for-popular", "mask-popular", ".mask-popular");
   } 
   catch(errors) {
     console.log(`Oops, errors! ${errors}`);
   }
 }
 
-const appendImgAndInfoFprNowPlaying = (data) => {
-
+const createElements = (data, elementId, containerElement, containerElementQuery, maskElement, maskElementQuery) => {
   for (let i = 0; i < data.results.length; i++) {
-    const divElementForNowPlaying = document.createElement("div");
-    divElementForNowPlaying.classList.add("position-for-img-and-caption");
-    document.getElementById("movie-collection-now-playing").appendChild(divElementForNowPlaying);
-    console.log(divElementForNowPlaying);
-  }
-  const el = document.querySelectorAll(".position-for-img-and-caption");
-  console.log(el);
+    const divContainerElement = document.createElement("div");
+    divContainerElement.classList.add(containerElement);
+    const divContainerElementforPAndBtn = document.createElement("div");
+    divContainerElementforPAndBtn.classList.add(maskElement);
 
-  for (let i = 0; i < el.length; i++) {
+    document.getElementById(elementId).appendChild(divContainerElement);
+    document.getElementById(elementId).childNodes[i].appendChild(divContainerElementforPAndBtn);
+    console.log(divContainerElement);
+  }
+  const elPositionForImgAndCaption = document.querySelectorAll(containerElementQuery);
+  const elMask = document.querySelectorAll(maskElementQuery);
+  console.log(elMask.length);
+
+  for (let i = 0; i < elPositionForImgAndCaption.length; i++) {
     const imgElement = document.createElement("img");
     const pElement = document.createElement("p");
-    const overviewElement = document.createElement("p");
     pElement.classList.add("movie-title");
-    overviewElement.classList.add("movie-overview");
-    
-    el[i].appendChild(imgElement);
-    imgElement.src = `https://image.tmdb.org/t/p/w200/${data.results[i].poster_path}`;
-    el[i].appendChild(pElement);
-    pElement.innerText = data.results[i].title;
-    console.log(el[i]);
-  }
+    const btnDetails = document.createElement("button");
+    const btnBookSeats = document.createElement("button");
 
-  const elForTopImg = document.querySelectorAll(".topimage");
-  const elForTopTitle = document.querySelectorAll(".toptitle");
-  let randomNum;
-  for (let i = 0; i < elForTopImg.length; i++) {
-    randomNum = Math.floor(Math.random() * el.length);
-    console.log(randomNum);
-    elForTopImg[i].src = `https://image.tmdb.org/t/p/w500/${data.results[randomNum].backdrop_path}`
-    elForTopTitle[i].innerText = data.results[randomNum].title;
+    elPositionForImgAndCaption[i].appendChild(imgElement);
+    imgElement.src = `https://image.tmdb.org/t/p/w200/${data.results[i].poster_path}`;
+    elMask[i].appendChild(pElement);
+    pElement.innerText = data.results[i].title;
+    elMask[i].appendChild(btnDetails);
+    elMask[i].appendChild(btnBookSeats);
+    btnDetails.innerHTML = "See Details";
+    btnBookSeats.innerHTML = "Book Seats";
   }
 }
 
-const appendImgAndInfoForPopular = (data) => {
-  for (let i = 0; i < data.results.length; i++) {
-    const divElementForMostPopular = document.createElement("div");
-    divElementForMostPopular.classList.add("position-for-img-and-caption-for-popular");
-    document.getElementById("movie-collection-popular").appendChild(divElementForMostPopular);
-    console.log(divElementForMostPopular);
-  }
-  const elForPopular = document.querySelectorAll(".position-for-img-and-caption-for-popular");
-  console.log(elForPopular);
-
-  for (let i = 0; i < elForPopular.length; i++) {
-    const imgElementForPopular = document.createElement("img");
-    const pElementForPopular = document.createElement("p");
-    pElementForPopular.classList.add("movie-title-for-popular");
-
-    elForPopular[i].appendChild(imgElementForPopular);
-    imgElementForPopular.src = `https://image.tmdb.org/t/p/w200/${data.results[i].poster_path}`;
-    elForPopular[i].appendChild(pElementForPopular);
-    pElementForPopular.innerText = data.results[i].title;
-    console.log(elForPopular[i]);
-  }
+const buildTopPage = (data) => {
+    const elForTopImg = document.querySelectorAll(".topimage");
+    const elForTopTitle = document.querySelectorAll(".toptitle");
+    for (let i = 0; i < elForTopImg.length; i++) {
+      let randomNum = Math.floor(Math.random() * data.results.length);
+      console.log(randomNum);
+      elForTopImg[i].src = `https://image.tmdb.org/t/p/w500/${data.results[randomNum].backdrop_path}`
+      elForTopTitle[i].innerText = data.results[randomNum].title;
+    }
 }
 
 fetchAPI();
