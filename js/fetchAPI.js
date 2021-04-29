@@ -12,10 +12,7 @@ const fetchAPI = async () => {
 
     console.log(movieData);
     // console.log(videoData);
-    foundationForNowPlaying(movieData);
     appendImgAndInfoFprNowPlaying(movieData);
-    foundationForMostPopular(movieData);
-
     appendImgAndInfoForPopular(response3.data);
   } 
   catch(errors) {
@@ -23,16 +20,14 @@ const fetchAPI = async () => {
   }
 }
 
-const foundationForNowPlaying = (data) => {
+const appendImgAndInfoFprNowPlaying = (data) => {
+
   for (let i = 0; i < data.results.length; i++) {
     const divElementForNowPlaying = document.createElement("div");
     divElementForNowPlaying.classList.add("position-for-img-and-caption");
     document.getElementById("movie-collection-now-playing").appendChild(divElementForNowPlaying);
     console.log(divElementForNowPlaying);
   }
-}
-
-const appendImgAndInfoFprNowPlaying = (data) => {
   const el = document.querySelectorAll(".position-for-img-and-caption");
   console.log(el);
 
@@ -43,15 +38,10 @@ const appendImgAndInfoFprNowPlaying = (data) => {
     pElement.classList.add("movie-title");
     overviewElement.classList.add("movie-overview");
     
-    
-
-
     el[i].appendChild(imgElement);
     imgElement.src = `https://image.tmdb.org/t/p/w200/${data.results[i].poster_path}`;
     el[i].appendChild(pElement);
     pElement.innerText = data.results[i].title;
-    // el[i].appendChild(overviewElement);
-    // overviewElement.innerText = data.results[i].overview;
     console.log(el[i]);
   }
 
@@ -66,18 +56,13 @@ const appendImgAndInfoFprNowPlaying = (data) => {
   }
 }
 
-
-const foundationForMostPopular = (data) => {
+const appendImgAndInfoForPopular = (data) => {
   for (let i = 0; i < data.results.length; i++) {
     const divElementForMostPopular = document.createElement("div");
     divElementForMostPopular.classList.add("position-for-img-and-caption-for-popular");
     document.getElementById("movie-collection-popular").appendChild(divElementForMostPopular);
     console.log(divElementForMostPopular);
   }
-}
-
-
-const appendImgAndInfoForPopular = (data) => {
   const elForPopular = document.querySelectorAll(".position-for-img-and-caption-for-popular");
   console.log(elForPopular);
 
