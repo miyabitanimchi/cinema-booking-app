@@ -41,7 +41,9 @@ const createElements = (data, elementId, containerElement, containerElementQuery
     const pElement = document.createElement("p");
     pElement.classList.add("movie-title");
     const btnDetails = document.createElement("button");
+    btnDetails.classList.add("btn-details", "btn", "btn-primary");
     const btnBookSeats = document.createElement("button");
+    btnBookSeats.classList.add("btn-book-seats", "btn", "btn-primary");
 
     elPositionForImgAndCaption[i].appendChild(imgElement);
     imgElement.src = `https://image.tmdb.org/t/p/w200/${data.results[i].poster_path}`;

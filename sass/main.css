@@ -281,17 +281,16 @@ body .selected {
   display: flex;
   overflow-x: scroll;
   overflow-y: visible;
+  padding-top: 20px;
   padding-bottom: 20px;
 }
 
 #movie-collection-now-playing .position-for-img-and-caption {
   position: relative;
-  -webkit-transition: 0s;
-  transition: 0s;
 }
 
 #movie-collection-now-playing .position-for-img-and-caption img {
-  margin: 20px 5px 0px 5px;
+  margin: 0px 5px 0px 5px;
   cursor: pointer;
   border-radius: 10px;
   -webkit-transition: 0s;
@@ -302,28 +301,76 @@ body .selected {
           transition-delay: 0.4s;
 }
 
-#movie-collection-now-playing .position-for-img-and-caption img:hover {
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
-}
-
-#movie-collection-now-playing .position-for-img-and-caption img:hover + .movie-title {
-  opacity: 1;
-}
-
-#movie-collection-now-playing .position-for-img-and-caption .movie-title {
-  opacity: 0;
-  color: white;
-  font-size: 30px;
+#movie-collection-now-playing .position-for-img-and-caption .mask {
+  margin: 0px 5px 0px 5px;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  height: 100%;
+  width: 200px;
+  background: rgba(24, 3, 3, 0.8);
+  border-radius: 10px;
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
   -webkit-transition-delay: 0.4s;
           transition-delay: 0.4s;
+  opacity: 0;
+  cursor: pointer;
+}
+
+#movie-collection-now-playing .position-for-img-and-caption .mask .movie-title {
+  color: white;
+  font-size: 25px;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 90%;
+  margin: auto;
+  text-align: center;
+}
+
+#movie-collection-now-playing .position-for-img-and-caption .mask .btn-details {
+  position: absolute;
+  top: 73%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.7);
+  color: black;
+}
+
+#movie-collection-now-playing .position-for-img-and-caption .mask .btn-details:hover {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  -webkit-transform: translate(-50%, -50%) scale(1.05);
+          transform: translate(-50%, -50%) scale(1.05);
+  background: white;
+}
+
+#movie-collection-now-playing .position-for-img-and-caption .mask .btn-book-seats {
+  position: absolute;
+  top: 88%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.7);
+  color: black;
+}
+
+#movie-collection-now-playing .position-for-img-and-caption .mask .btn-book-seats:hover {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  -webkit-transform: scale(1.05) translate(-50%, -50%);
+          transform: scale(1.05) translate(-50%, -50%);
+  background: white;
+}
+
+#movie-collection-now-playing .position-for-img-and-caption .mask:hover {
+  opacity: 1;
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
 }
 
 #movie-collection-popular {
@@ -340,37 +387,87 @@ body .selected {
 }
 
 #movie-collection-popular .position-for-img-and-caption-for-popular img {
-  margin: 20px 5px 0px 5px;
+  margin: 0px 5px 0px 5px;
   cursor: pointer;
+  border-radius: 10px;
+  -webkit-transition: 0s;
+  transition: 0s;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  -webkit-transition-delay: 0.4s;
+          transition-delay: 0.4s;
+}
+
+#movie-collection-popular .position-for-img-and-caption-for-popular .mask-popular {
+  margin: 0px 5px 0px 5px;
+  position: absolute;
+  height: 100%;
+  width: 200px;
+  background: rgba(24, 3, 3, 0.8);
   border-radius: 10px;
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
   -webkit-transition-delay: 0.4s;
           transition-delay: 0.4s;
-}
-
-#movie-collection-popular .position-for-img-and-caption-for-popular img:hover {
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
-}
-
-#movie-collection-popular .position-for-img-and-caption-for-popular img:hover + .movie-title-for-popular {
-  opacity: 1;
-}
-
-#movie-collection-popular .position-for-img-and-caption-for-popular .movie-title-for-popular {
   opacity: 0;
+  cursor: pointer;
+}
+
+#movie-collection-popular .position-for-img-and-caption-for-popular .mask-popular .movie-title {
   color: white;
-  font-size: 30px;
+  font-size: 25px;
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-  -webkit-transition-delay: 0.4s;
-          transition-delay: 0.4s;
+  width: 90%;
+  margin: auto;
+  text-align: center;
+}
+
+#movie-collection-popular .position-for-img-and-caption-for-popular .mask-popular .btn-details {
+  position: absolute;
+  top: 73%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.7);
+  color: black;
+}
+
+#movie-collection-popular .position-for-img-and-caption-for-popular .mask-popular .btn-details:hover {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  -webkit-transform: translate(-50%, -50%) scale(1.05);
+          transform: translate(-50%, -50%) scale(1.05);
+  background: white;
+}
+
+#movie-collection-popular .position-for-img-and-caption-for-popular .mask-popular .btn-book-seats {
+  position: absolute;
+  top: 88%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.7);
+  color: black;
+}
+
+#movie-collection-popular .position-for-img-and-caption-for-popular .mask-popular .btn-book-seats:hover {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  -webkit-transform: scale(1.05) translate(-50%, -50%);
+          transform: scale(1.05) translate(-50%, -50%);
+  background: white;
+}
+
+#movie-collection-popular .position-for-img-and-caption-for-popular .mask-popular:hover {
+  opacity: 1;
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
 }
 
 h1 {
