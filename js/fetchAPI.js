@@ -4,17 +4,18 @@ const fetchAPI = async () => {
   try {
     const response = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}`);
     // const response2 = await axios.get(`https://api.themoviedb.org/3/movie/460465/videos?api_key=${API_KEY}&language=en-US`);
-    const response3 = await axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`);
+    const responsePopular = await axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`);
 
-    console.log(response3.data);
     const movieData = response.data;
+    const movieDataPopular = responsePopular.data;
     // const videoData = response2.data.results[1].key;
 
     console.log(movieData);
+    console.log(movieDataPopular);
     // console.log(videoData);
     buildTopPage(movieData);
     createElements(movieData, "movie-collection-now-playing", "position-for-img-and-caption", ".position-for-img-and-caption", "mask", ".mask");
-    createElements(response3.data, "movie-collection-popular", "position-for-img-and-caption-for-popular", ".position-for-img-and-caption-for-popular", "mask-popular", ".mask-popular");
+    createElements(movieDataPopular, "movie-collection-popular", "position-for-img-and-caption-for-popular", ".position-for-img-and-caption-for-popular", "mask-popular", ".mask-popular");
   } 
   catch(errors) {
     console.log(`Oops, errors! ${errors}`);
@@ -35,8 +36,7 @@ const createElements = (data, elementId, containerElement, containerElementQuery
   const elPositionForImgAndCaption = document.querySelectorAll(containerElementQuery);
   const elMask = document.querySelectorAll(maskElementQuery);
   console.log(elMask.length);
-  const btnAttributes = ["type", "data-bs-toggle", "data-bs-target"];
-  const btnAttrValues = ["button", "modal", "#exampleModal"];
+  
   for (let i = 0; i < elPositionForImgAndCaption.length; i++) {
     const imgElement = document.createElement("img");
     const pElement = document.createElement("p");
@@ -46,9 +46,11 @@ const createElements = (data, elementId, containerElement, containerElementQuery
     const btnBookSeats = document.createElement("button");
     btnBookSeats.classList.add("btn-book-seats", "btn", "btn-primary");
 
+    const btnAttributes = ["type", "data-bs-toggle", "data-bs-target", "onclick"];
+    const btnAttrValues = ["button", "modal", "#exampleModal", `showDetails(${data.results[i].id})`];
+
     for (let j = 0; j < btnAttrValues.length; j++) {
       btnDetails.setAttribute(btnAttributes[j], btnAttrValues[j]);
-      btnBookSeats.setAttribute(btnAttributes[j], btnAttrValues[j]);
     }
 
     elPositionForImgAndCaption[i].appendChild(imgElement);
@@ -65,12 +67,19 @@ const createElements = (data, elementId, containerElement, containerElementQuery
 const buildTopPage = (data) => {
     const elForTopImg = document.querySelectorAll(".topimage");
     const elForTopTitle = document.querySelectorAll(".toptitle");
+    const elForTopBtns = document.querySelectorAll(".modal-class")
     for (let i = 0; i < elForTopImg.length; i++) {
       let randomNum = Math.floor(Math.random() * data.results.length);
+      elForTopBtns[i].setAttribute("onclick", `showDetails(${data.results[randomNum].id})`);
       console.log(randomNum);
+      console.log(elForTopBtns);
       elForTopImg[i].src = `https://image.tmdb.org/t/p/w500/${data.results[randomNum].backdrop_path}`
       elForTopTitle[i].innerText = data.results[randomNum].title;
     }
+}
+
+const showDetails = async (movieId) => {
+  
 }
 
 fetchAPI();
