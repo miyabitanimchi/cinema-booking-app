@@ -537,6 +537,16 @@ main .carousel-inner .carousel-item .carousel-caption .topButtons:hover {
   font-style: italic;
 }
 
+.modal-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .modal-body #genre-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -554,5 +564,23 @@ main .carousel-inner .carousel-item .carousel-caption .topButtons:hover {
   padding: 10px;
   border-radius: 5px;
   margin: 0 5px 0 5px;
+}
+
+.modal-body .trailer-container {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  position: relative;
+  width: 80%;
+  padding-top: 56.25%;
+  margin-top: 20px;
+}
+
+.modal-body .trailer-container #iframe {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
 }
 /*# sourceMappingURL=main.css.map */

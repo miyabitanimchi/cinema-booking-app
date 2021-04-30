@@ -82,12 +82,13 @@ fetchAPI();
 
 const fetchAPIForModal = async (movieId) => {
   try {
-    const responseVideo = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`);
+    const responseTrailer = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`);
     const responseDetails = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`)
-    const videoKey = responseVideo.data.results[0].id;
+    const videoKey = responseTrailer.data.results[0].key;
     console.log(videoKey);
     console.log(responseDetails);
     showDetails(responseDetails);
+    showTrailer(responseTrailer);
   }
   catch(errors) {
     console.log(`Oops, errors! ${errors}`);
@@ -100,6 +101,7 @@ const showDetails = (details) => {
   console.log(childDivs);
   console.log(genreContainer.hasChildNodes());
 
+  // resset childnodes (divs for previous genres)
   while (genreContainer.hasChildNodes()) {
     genreContainer.removeChild(genreContainer.firstChild);
     }
@@ -113,5 +115,8 @@ const showDetails = (details) => {
     genreContainer.appendChild(elForGenre);
     genreContainer.childNodes[i].innerText = `${details.data.genres[i]["name"]}`
   }
+}
 
+const showTrailer = (trailerData) => {
+  document.getElementById("iframe").src = `https://www.youtube.com/embed/${trailerData.data.results[0].key}?rel=0&autoplay=1&mute=1&playsinline=1&loop=1&playlist=<video_id>&controls=0&disablekb=1`;
 }
