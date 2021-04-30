@@ -78,8 +78,23 @@ const buildTopPage = (data) => {
     }
 }
 
+fetchAPI();
+
 const showDetails = async (movieId) => {
-  
+  try {
+    const responseVideo = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`);
+    const responseDetails = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`)
+    const videoKey = responseVideo.data.results[0].id;
+    console.log(videoKey);
+    console.log(responseDetails);
+    showTitle(responseDetails);
+  }
+  catch(errors) {
+    console.log(`Oops, errors! ${errors}`);
+  }
 }
 
-fetchAPI();
+const showTitle = (details) => {
+  document.getElementById("movieTitle").innerText = `${details.data.title}`;
+  document.getElementById("tagline").innerText = `- ${details.data.tagline} -`;
+}

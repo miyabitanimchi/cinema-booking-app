@@ -512,4 +512,28 @@ main .carousel-inner .carousel-item .carousel-caption .topButtons:hover {
           transform: scale(1.05);
   background: white;
 }
+
+.modal-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.modal-header .modal-title {
+  margin: 0 auto;
+  font-size: 30px;
+}
+
+.modal-header .btn-close {
+  padding-top: 10px;
+}
+
+.modal-header #tagline {
+  padding-top: 10px;
+  font-style: italic;
+}
 /*# sourceMappingURL=main.css.map */

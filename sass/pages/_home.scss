@@ -215,3 +215,20 @@ main {
     }
   }
 }
+
+.modal-header {
+  display: flex;
+  flex-direction: column;
+  .modal-title {
+    margin: 0 auto;
+    font-size: 30px;
+  }
+  .btn-close {
+    padding-top: 10px;
+  }
+
+  #tagline {
+    padding-top: 10px;
+    font-style: italic;
+  }
+}
