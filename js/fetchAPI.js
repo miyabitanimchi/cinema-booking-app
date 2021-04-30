@@ -35,7 +35,8 @@ const createElements = (data, elementId, containerElement, containerElementQuery
   const elPositionForImgAndCaption = document.querySelectorAll(containerElementQuery);
   const elMask = document.querySelectorAll(maskElementQuery);
   console.log(elMask.length);
-
+  const btnAttributes = ["type", "data-bs-toggle", "data-bs-target"];
+  const btnAttrValues = ["button", "modal", "#exampleModal"];
   for (let i = 0; i < elPositionForImgAndCaption.length; i++) {
     const imgElement = document.createElement("img");
     const pElement = document.createElement("p");
@@ -44,6 +45,11 @@ const createElements = (data, elementId, containerElement, containerElementQuery
     btnDetails.classList.add("btn-details", "btn", "btn-primary");
     const btnBookSeats = document.createElement("button");
     btnBookSeats.classList.add("btn-book-seats", "btn", "btn-primary");
+
+    for (let j = 0; j < btnAttrValues.length; j++) {
+      btnDetails.setAttribute(btnAttributes[j], btnAttrValues[j]);
+      btnBookSeats.setAttribute(btnAttributes[j], btnAttrValues[j]);
+    }
 
     elPositionForImgAndCaption[i].appendChild(imgElement);
     imgElement.src = `https://image.tmdb.org/t/p/w200/${data.results[i].poster_path}`;

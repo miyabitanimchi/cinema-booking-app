@@ -318,7 +318,7 @@ body .selected {
 
 #movie-collection-now-playing .position-for-img-and-caption .mask .movie-title {
   color: white;
-  font-size: 25px;
+  font-size: 23px;
   position: absolute;
   top: 40%;
   left: 50%;
@@ -415,7 +415,7 @@ body .selected {
 
 #movie-collection-popular .position-for-img-and-caption-for-popular .mask-popular .movie-title {
   color: white;
-  font-size: 25px;
+  font-size: 23px;
   position: absolute;
   top: 40%;
   left: 50%;
