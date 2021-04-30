@@ -98,11 +98,11 @@ const showDetails = (details) => {
   const genreContainer = document.getElementById("genre-container");
   const childDivs = document.getElementsByClassName("genre");
   console.log(childDivs);
-  if (genreContainer.hasChildNodes) {
-    for (let i = 0; i < childDivs.length; i++) {
-      genreContainer.removeChild(childDivs[0]);
+  console.log(genreContainer.hasChildNodes());
+
+  while (genreContainer.hasChildNodes()) {
+    genreContainer.removeChild(genreContainer.firstChild);
     }
-  }
   document.getElementById("movieTitle").innerText = `${details.data.title}`;
   document.getElementById("tagline").innerText = `- ${details.data.tagline} -`;
 

@@ -552,5 +552,7 @@ main .carousel-inner .carousel-item .carousel-caption .topButtons:hover {
 .modal-body #genre-container .genre {
   background-color: rgba(119, 115, 115, 0.3);
   padding: 10px;
+  border-radius: 5px;
+  margin: 0 5px 0 5px;
 }
 /*# sourceMappingURL=main.css.map */
