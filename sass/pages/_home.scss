@@ -242,7 +242,7 @@ main {
     align-items: center;
 
     .genre {
-      background-color: rgba(119, 115, 115, 0.3);
+      background-color: rgba(22, 210, 235, 0.3);
       padding: 10px;
       border-radius: 5px;
       margin: 0 5px 0 5px;
@@ -252,16 +252,40 @@ main {
   .trailer-container {
     align-self: center;
     position: relative;
-    width: 80%;
+    width: 90%;
     padding-top: 56.25%;
     margin-top: 20px;
 
-    #iframe {
+    #trailer {
       position: absolute;
       top: 0;
       right: 0;
       width: 100%;
       height: 100%;
+    }
+  }
+  #trailer-name {
+    align-self: center;
+  }
+  h5 {
+    margin-top: 15px;
+    align-self: center;
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  #overview {
+    align-self: center;
+    text-align: justify;
+    width: 90%;
+  }
+
+  #cast {
+    align-self: center;
+    // width: 90%;
+
+    .cast {
+      margin: 0 5px 0 5px;
     }
   }
 }

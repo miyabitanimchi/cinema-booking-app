@@ -31,11 +31,10 @@ const createElements = (data, elementId, containerElement, containerElementQuery
 
     document.getElementById(elementId).appendChild(divContainerElement);
     document.getElementById(elementId).childNodes[i].appendChild(divContainerElementforPAndBtn);
-    console.log(divContainerElement);
+    // console.log(divContainerElement);
   }
   const elPositionForImgAndCaption = document.querySelectorAll(containerElementQuery);
   const elMask = document.querySelectorAll(maskElementQuery);
-  console.log(elMask.length);
   
   for (let i = 0; i < elPositionForImgAndCaption.length; i++) {
     const imgElement = document.createElement("img");
@@ -71,7 +70,7 @@ const buildTopPage = (data) => {
     for (let i = 0; i < elForTopImg.length; i++) {
       let randomNum = Math.floor(Math.random() * data.results.length);
       elForTopBtns[i].setAttribute("onclick", `fetchAPIForModal(${data.results[randomNum].id})`);
-      console.log(randomNum);
+      // console.log(randomNum);
       console.log(elForTopBtns);
       elForTopImg[i].src = `https://image.tmdb.org/t/p/w500/${data.results[randomNum].backdrop_path}`
       elForTopTitle[i].innerText = data.results[randomNum].title;
@@ -83,19 +82,20 @@ fetchAPI();
 const fetchAPIForModal = async (movieId) => {
   try {
     const responseTrailer = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`);
-    const responseDetails = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`)
-    const videoKey = responseTrailer.data.results[0].key;
-    console.log(videoKey);
+    const responseDetails = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`);
+    const responseCredits = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`)
+   
     console.log(responseDetails);
-    showDetails(responseDetails);
-    showTrailer(responseTrailer);
+    console.log(responseTrailer);
+    console.log(responseCredits);
+    showDetails(responseDetails, responseTrailer, responseCredits);
   }
   catch(errors) {
     console.log(`Oops, errors! ${errors}`);
   }
 }
 
-const showDetails = (details) => {
+const showDetails = (details, trailerData, credits) => {
   const genreContainer = document.getElementById("genre-container");
   const childDivs = document.getElementsByClassName("genre");
   console.log(childDivs);
@@ -105,18 +105,28 @@ const showDetails = (details) => {
   while (genreContainer.hasChildNodes()) {
     genreContainer.removeChild(genreContainer.firstChild);
     }
-  document.getElementById("movieTitle").innerText = `${details.data.title}`;
+  document.getElementById("movieTitle").innerText = details.data.title;
   document.getElementById("tagline").innerText = `- ${details.data.tagline} -`;
 
   for (let i = 0; i < details.data.genres.length; i++) {
     const elForGenre = document.createElement("div");
     elForGenre.classList.add("genre"); 
-    console.log(elForGenre);
     genreContainer.appendChild(elForGenre);
-    genreContainer.childNodes[i].innerText = `${details.data.genres[i]["name"]}`
+    genreContainer.childNodes[i].innerText = details.data.genres[i]["name"];
   }
-}
+  // show trailer
+  document.getElementById("trailer").src = `https://www.youtube.com/embed/${trailerData.data.results[0].key}?rel=0&autoplay=1&mute=1&playsinline=1&loop=1&playlist=${trailerData.data.results[0].key}&controls=0&disablekb=1`;
+  document.getElementById("trailer-name").innerText = trailerData.data.results[0].name;
 
-const showTrailer = (trailerData) => {
-  document.getElementById("iframe").src = `https://www.youtube.com/embed/${trailerData.data.results[0].key}?rel=0&autoplay=1&mute=1&playsinline=1&loop=1&playlist=<video_id>&controls=0&disablekb=1`;
+  // show overview
+  document.getElementById("overview").innerText = details.data.overview;
+
+  // show cast
+  for (let i = 0; i < 5; i++) {
+    document.getElementById("cast").childNodes[i].innerText = `• ${credits.data.cast[i]["name"]}`;
+    console.log(document.getElementById("cast").childNodes[i]);
+  }
+
+  // show director
+  document.getElementById("director").innerText = credits.data.crew[0]["name"];
 }
