@@ -47,7 +47,7 @@ const createElements = (data, elementId, containerElement, containerElementQuery
     btnBookSeats.classList.add("btn-book-seats", "btn", "btn-primary");
 
     const btnAttributes = ["type", "data-bs-toggle", "data-bs-target", "onclick"];
-    const btnAttrValues = ["button", "modal", "#exampleModal", `showDetails(${data.results[i].id})`];
+    const btnAttrValues = ["button", "modal", "#exampleModal", `fetchAPIForModal(${data.results[i].id})`];
 
     for (let j = 0; j < btnAttrValues.length; j++) {
       btnDetails.setAttribute(btnAttributes[j], btnAttrValues[j]);
@@ -70,7 +70,7 @@ const buildTopPage = (data) => {
     const elForTopBtns = document.querySelectorAll(".modal-class")
     for (let i = 0; i < elForTopImg.length; i++) {
       let randomNum = Math.floor(Math.random() * data.results.length);
-      elForTopBtns[i].setAttribute("onclick", `showDetails(${data.results[randomNum].id})`);
+      elForTopBtns[i].setAttribute("onclick", `fetchAPIForModal(${data.results[randomNum].id})`);
       console.log(randomNum);
       console.log(elForTopBtns);
       elForTopImg[i].src = `https://image.tmdb.org/t/p/w500/${data.results[randomNum].backdrop_path}`
@@ -80,21 +80,38 @@ const buildTopPage = (data) => {
 
 fetchAPI();
 
-const showDetails = async (movieId) => {
+const fetchAPIForModal = async (movieId) => {
   try {
     const responseVideo = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`);
     const responseDetails = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`)
     const videoKey = responseVideo.data.results[0].id;
     console.log(videoKey);
     console.log(responseDetails);
-    showTitle(responseDetails);
+    showDetails(responseDetails);
   }
   catch(errors) {
     console.log(`Oops, errors! ${errors}`);
   }
 }
 
-const showTitle = (details) => {
+const showDetails = (details) => {
+  const genreContainer = document.getElementById("genre-container");
+  const childDivs = document.getElementsByClassName("genre");
+  console.log(childDivs);
+  if (genreContainer.hasChildNodes) {
+    for (let i = 0; i < childDivs.length; i++) {
+      genreContainer.removeChild(childDivs[0]);
+    }
+  }
   document.getElementById("movieTitle").innerText = `${details.data.title}`;
   document.getElementById("tagline").innerText = `- ${details.data.tagline} -`;
+
+  for (let i = 0; i < details.data.genres.length; i++) {
+    const elForGenre = document.createElement("div");
+    elForGenre.classList.add("genre"); 
+    console.log(elForGenre);
+    genreContainer.appendChild(elForGenre);
+    genreContainer.childNodes[i].innerText = `${details.data.genres[i]["name"]}`
+  }
+
 }

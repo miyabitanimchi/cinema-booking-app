@@ -536,4 +536,21 @@ main .carousel-inner .carousel-item .carousel-caption .topButtons:hover {
   padding-top: 10px;
   font-style: italic;
 }
+
+.modal-body #genre-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.modal-body #genre-container .genre {
+  background-color: rgba(119, 115, 115, 0.3);
+  padding: 10px;
+}
 /*# sourceMappingURL=main.css.map */

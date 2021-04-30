@@ -232,3 +232,16 @@ main {
     font-style: italic;
   }
 }
+
+.modal-body {
+  #genre-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .genre {
+      background-color: rgba(119, 115, 115, 0.3);
+      padding: 10px;
+    }
+  }
+}
