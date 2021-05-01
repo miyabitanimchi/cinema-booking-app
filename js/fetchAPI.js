@@ -121,9 +121,15 @@ const showDetails = (details, trailerData, credits) => {
   // show overview
   document.getElementById("overview").innerText = details.data.overview;
 
-  // show cast
+  // show cast and crew
   for (let i = 0; i < 5; i++) {
-    document.getElementById("cast").childNodes[i].innerText = `• ${credits.data.cast[i]["name"]}`;
+    document.getElementById("cast").childNodes[i].innerText = `${credits.data.cast[i]["name"]}, `;
+    document.getElementById("crew").childNodes[i].innerHTML = `<b>${credits.data.crew[i]["job"]}:</b> ${credits.data.crew[i]["name"]}`
+    
+    if (i === 4) {
+      document.getElementById("cast").childNodes[i].innerText = `${credits.data.cast[i]["name"]}`;
+    }
+    // console.log(document.getElementById("crew").childNodes[i]);
     console.log(document.getElementById("cast").childNodes[i]);
   }
 
