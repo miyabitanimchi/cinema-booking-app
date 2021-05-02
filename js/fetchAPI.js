@@ -42,7 +42,8 @@ const createElements = (data, elementId, containerElement, containerElementQuery
     pElement.classList.add("movie-title");
     const btnDetails = document.createElement("button");
     btnDetails.classList.add("btn-details", "btn", "btn-primary");
-    const btnBookSeats = document.createElement("button");
+    const btnBookSeats = document.createElement("a");
+    btnBookSeats.href = "./bookingSeats.html";
     btnBookSeats.classList.add("btn-book-seats", "btn", "btn-primary");
 
     const btnAttributes = ["type", "data-bs-toggle", "data-bs-target", "onclick"];
@@ -61,6 +62,7 @@ const createElements = (data, elementId, containerElement, containerElementQuery
     btnDetails.innerHTML = "See Details";
     btnBookSeats.innerHTML = "Book Seats";
   }
+  
 }
 
 const buildTopPage = (data) => {
