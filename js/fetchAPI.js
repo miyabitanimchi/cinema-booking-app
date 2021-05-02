@@ -161,3 +161,13 @@ const showDetails = (details, trailerData, credits) => {
   // show director
   document.getElementById("director").innerText = credits.data.crew[0]["name"];
 }
+
+
+// fetch API from search box for modal 
+// const getIdAndPassToParam = (details) => {
+  document.querySelector("#searchBox").addEventListener("input", () => {
+    const val = document.getElementById("searchBox").value;
+    const dataValue = document.querySelector("#datalist option[value='"+val+"']").dataset.value;
+    document.getElementById("submitBtn").setAttribute("onclick", `fetchAPIFromSearchForModal(${dataValue})`);
+  })
+// }
