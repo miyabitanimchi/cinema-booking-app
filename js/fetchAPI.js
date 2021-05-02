@@ -1,18 +1,16 @@
+let counterForFunc = 0;
 const API_KEY = "6de0031ff9ff7891e34f8d09f9cbc39b";
 
 const fetchAPI = async () => {
   try {
     const response = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}`);
-    // const response2 = await axios.get(`https://api.themoviedb.org/3/movie/460465/videos?api_key=${API_KEY}&language=en-US`);
     const responsePopular = await axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`);
 
     const movieData = response.data;
     const movieDataPopular = responsePopular.data;
-    // const videoData = response2.data.results[1].key;
 
     console.log(movieData);
     console.log(movieDataPopular);
-    // console.log(videoData);
     buildTopPage(movieData);
     createElements(movieData, "movie-collection-now-playing", "position-for-img-and-caption", ".position-for-img-and-caption", "mask", ".mask");
     createElements(movieDataPopular, "movie-collection-popular", "position-for-img-and-caption-for-popular", ".position-for-img-and-caption-for-popular", "mask-popular", ".mask-popular");
@@ -62,7 +60,7 @@ const createElements = (data, elementId, containerElement, containerElementQuery
     btnDetails.innerHTML = "See Details";
     btnBookSeats.innerHTML = "Book Seats";
   }
-  
+  createSearchFunc(data);
 }
 
 const buildTopPage = (data) => {
@@ -78,7 +76,19 @@ const buildTopPage = (data) => {
       elForTopTitle[i].innerText = data.results[randomNum].title;
     }
 }
-
+const createSearchFunc = (data) => {
+  // if (counterForFunc > 0) {
+  //   for (j = 0; j < )
+  // } 
+  for (i = 0; i < data.results.length; i++) {
+    const optionElement = document.createElement("option");
+    document.getElementById("datalist").appendChild(optionElement);
+    document.getElementById("datalist").childNodes[i].value = data.results[i].id;
+    document.getElementById("datalist").childNodes[i].innerText = data.results[i].title;
+  }
+  counterForFunc++;
+  console.log(counterForFunc);
+}
 fetchAPI();
 
 const fetchAPIForModal = async (movieId) => {
