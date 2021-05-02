@@ -171,3 +171,19 @@ const showDetails = (details, trailerData, credits) => {
     document.getElementById("submitBtn").setAttribute("onclick", `fetchAPIFromSearchForModal(${dataValue})`);
   })
 // }
+
+const fetchAPIFromSearchForModal = async (movieId) => {
+  try {
+    const responseTrailer = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`);
+    const responseDetails = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`);
+    const responseCredits = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`)
+   
+    console.log(responseDetails);
+    console.log(responseTrailer);
+    console.log(responseCredits);
+    showDetails(responseDetails, responseTrailer, responseCredits);
+  }
+  catch(errors) {
+    console.log(`Oops, errors! ${errors}`);
+  }
+}
