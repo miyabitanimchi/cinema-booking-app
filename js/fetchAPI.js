@@ -5,12 +5,17 @@ const fetchAPI = async () => {
   try {
     const response = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}`);
     const responsePopular = await axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`);
-
+    const responseDailyPopular = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
+    // const testAPI = await axios.get(`https://api.themoviedb.org/3/collection/1241?api_key=${API_KEY}`);
+    // const testAPI2 = await axios.get(`https://api.themoviedb.org/3/search/collection?api_key=${API_KEY}&language=en-US&query=harry`)
+    // console.log(testAPI);
+    // console.log(testAPI2);
+    console.log(responseDailyPopular);
     const movieData = response.data;
     const movieDataPopular = responsePopular.data;
 
-    console.log(movieData);
-    console.log(movieDataPopular);
+    // console.log(movieData);
+    // console.log(movieDataPopular);
     buildTopPage(movieData);
     createElements(movieData, "movie-collection-now-playing", "position-for-img-and-caption", ".position-for-img-and-caption", "mask", ".mask");
     createElements(movieDataPopular, "movie-collection-popular", "position-for-img-and-caption-for-popular", ".position-for-img-and-caption-for-popular", "mask-popular", ".mask-popular");
@@ -20,6 +25,7 @@ const fetchAPI = async () => {
   }
 }
 
+// for 
 const createElements = (data, elementId, containerElement, containerElementQuery, maskElement, maskElementQuery) => {
   for (let i = 0; i < data.results.length; i++) {
     const divContainerElement = document.createElement("div");

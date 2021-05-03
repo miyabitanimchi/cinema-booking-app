@@ -6,14 +6,18 @@
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
 }
 
 body {
   background: whitesmoke;
 }
 
+body .navbar-bookseats {
+  position: fixed;
+}
+
 body .main-container {
+  padding-top: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -23,7 +27,6 @@ body .main-container {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 10rem;
 }
 
 @media screen and (max-width: 820px) {
@@ -263,6 +266,7 @@ body .main-container .seat-container .showcase-container .seat-showcase .occupie
 
 body .price-container {
   text-align: center;
+  margin-bottom: 30px;
 }
 
 body .selected {
