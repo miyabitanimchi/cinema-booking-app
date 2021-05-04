@@ -6,19 +6,22 @@ const fetchAPI = async () => {
     const response = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}`);
     const responsePopular = await axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`);
     const responseDailyPopular = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
-    // const testAPI = await axios.get(`https://api.themoviedb.org/3/collection/1241?api_key=${API_KEY}`);
-    // const testAPI2 = await axios.get(`https://api.themoviedb.org/3/search/collection?api_key=${API_KEY}&language=en-US&query=harry`)
-    // console.log(testAPI);
-    // console.log(testAPI2);
-    console.log(responseDailyPopular);
+    const responseAnime = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=16`);
+    const testAPI2 = await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`)
+    // console.log(responseAnime);
+    console.log(testAPI2);
+    // console.log(responseDailyPopular);
     const movieData = response.data;
     const movieDataPopular = responsePopular.data;
+    const movieDataAnime = responseAnime.data;
 
     // console.log(movieData);
     // console.log(movieDataPopular);
     buildTopPage(movieData);
     createElements(movieData, "movie-collection-now-playing", "position-for-img-and-caption", ".position-for-img-and-caption", "mask", ".mask");
     createElements(movieDataPopular, "movie-collection-popular", "position-for-img-and-caption-for-popular", ".position-for-img-and-caption-for-popular", "mask-popular", ".mask-popular");
+    createElements(movieDataAnime, "movie-collection-anime", "position-for-img-and-caption-for-anime", ".position-for-img-and-caption-for-anime", "mask-anime", ".mask-anime");
+    // createElements()
   } 
   catch(errors) {
     console.log(`Oops, errors! ${errors}`);

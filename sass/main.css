@@ -452,7 +452,7 @@ body .selected {
   background: #577bf1 !important;
 }
 
-#movie-collection-now-playing, #movie-collection-popular {
+#movie-collection-now-playing, #movie-collection-popular, #movie-collection-anime {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -461,7 +461,7 @@ body .selected {
   padding-bottom: 20px;
 }
 
-#movie-collection-now-playing img, #movie-collection-popular img {
+#movie-collection-now-playing img, #movie-collection-popular img, #movie-collection-anime img {
   margin: 0px 5px 0px 5px;
   cursor: pointer;
   border-radius: 10px;
@@ -473,7 +473,7 @@ body .selected {
           transition-delay: 0.4s;
 }
 
-#movie-collection-now-playing .movie-title, #movie-collection-popular .movie-title {
+#movie-collection-now-playing .movie-title, #movie-collection-popular .movie-title, #movie-collection-anime .movie-title {
   color: white;
   font-size: 23px;
   position: absolute;
@@ -486,11 +486,11 @@ body .selected {
   text-align: center;
 }
 
-.position-for-img-and-caption, .position-for-img-and-caption-for-popular {
+.position-for-img-and-caption, .position-for-img-and-caption-for-popular, .position-for-img-and-caption-for-anime {
   position: relative;
 }
 
-.mask, .mask-popular {
+.mask, .mask-popular, .mask-anime {
   margin: 0px 5px 0px 5px;
   position: absolute;
   height: 100%;
@@ -505,13 +505,13 @@ body .selected {
   cursor: pointer;
 }
 
-.mask:hover, .mask-popular:hover {
+.mask:hover, .mask-popular:hover, .mask-anime:hover {
   opacity: 1;
   -webkit-transform: scale(1.02);
           transform: scale(1.02);
 }
 
-#movie-collection-now-playing {
+#movie-collection-now-playing, #movie-collection-popular {
   padding-top: 20px;
 }
 

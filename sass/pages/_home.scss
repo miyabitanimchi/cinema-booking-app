@@ -1,5 +1,5 @@
 
-#movie-collection-now-playing, #movie-collection-popular {
+#movie-collection-now-playing, #movie-collection-popular, #movie-collection-anime {
   display: flex;
   overflow-x: scroll;
   overflow-y: visible;
@@ -27,11 +27,11 @@
     }
 }
 
-.position-for-img-and-caption, .position-for-img-and-caption-for-popular {
+.position-for-img-and-caption, .position-for-img-and-caption-for-popular, .position-for-img-and-caption-for-anime {
   position: relative;
 }
 
-.mask, .mask-popular {
+.mask, .mask-popular, .mask-anime {
   margin: 0px 5px 0px 5px;
   position: absolute;
   height: 100%;
@@ -49,7 +49,7 @@
   }
 }
 
-#movie-collection-now-playing {
+#movie-collection-now-playing, #movie-collection-popular {
   padding-top: 20px;
 }
 
