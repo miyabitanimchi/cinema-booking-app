@@ -1,8 +1,12 @@
-@import './layout/header';
-
 
 @import './utilities/mixins';
 @import './utilities/variables';
+
+@import './layout/header';
+
+@import './components/buttons';
+@import './components/carousel';
+@import './components/modal';
 
 @import './pages/home';
 @import './pages/bookseats';

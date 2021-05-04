@@ -1,13 +1,9 @@
 
-#movie-collection-now-playing {
+#movie-collection-now-playing, #movie-collection-popular {
   display: flex;
   overflow-x: scroll;
   overflow-y: visible;
-  padding-top: 20px;
   padding-bottom: 20px;
- 
-  .position-for-img-and-caption {
-    position: relative;
    
     img {
       margin: 0px 5px 0px 5px;
@@ -17,72 +13,44 @@
       transition-duration: 0.2s;
       transition-delay: 0.4s;
     }
-
-    .mask {
-      margin: 0px 5px 0px 5px;
+    .movie-title {
+      color: white;
+      font-size: 23px;
       position: absolute;
-      height: 100%;
-      width: 200px;
-      background: rgba(24, 3, 3, 0.8);
-      border-radius: 10px;
-      transition-duration: 0.2s;
-      transition-delay: 0.4s;
-      opacity: 0;
-      cursor: pointer;
-
-      .movie-title {
-        color: white;
-        font-size: 23px;
-        position: absolute;
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        
-        width: 90%;
-        margin: auto;
-        text-align: center;
-      }
-
-      .btn-details {
-        position: absolute;
-        top: 73%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 5px;
-        background: rgba(255, 255, 255, 0.7);
-        color: black;
-        padding: 6px 8px;
-
-        &:hover {
-          transition: 0.2s;
-          transform: translate(-50%, -50%) scale(1.05);
-          background: rgba(255, 255, 255, 1);
-        }
-      }
-
-      .btn-book-seats {
-        position: absolute;
-        top: 88%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 5px;
-        background: rgba(255, 255, 255, 0.7);
-        color: black; 
-        font-size: 16px;
-        padding: 6px 8px;
-        
-        &:hover {
-          transition: 0.2s;
-          transform: scale(1.05) translate(-50%, -50%);
-          background: rgba(255, 255, 255, 1);
-        }
-      }
-    &:hover {
-      opacity: 1;
-      transform: scale(1.02);
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      
+      width: 90%;
+      margin: auto;
+      text-align: center;
     }
-  } 
+}
+
+.position-for-img-and-caption, .position-for-img-and-caption-for-popular {
+  position: relative;
+}
+
+.mask, .mask-popular {
+  margin: 0px 5px 0px 5px;
+  position: absolute;
+  height: 100%;
+  width: 200px;
+  background: rgba(24, 3, 3, 0.8);
+  border-radius: 10px;
+  transition-duration: 0.2s;
+  transition-delay: 0.4s;
+  opacity: 0;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+    transform: scale(1.02);
   }
+}
+
+#movie-collection-now-playing {
+  padding-top: 20px;
 }
 
 #movie-collection-popular {
@@ -91,9 +59,6 @@
   overflow-y: hidden;
   padding-bottom: 20px;
 
-  .position-for-img-and-caption-for-popular {
-    position: relative;
-   
     img {
       margin: 0px 5px 0px 5px;
       cursor: pointer;
@@ -102,73 +67,6 @@
       transition-duration: 0.2s;
       transition-delay: 0.4s;
     }
-
-    .mask-popular {
-      margin: 0px 5px 0px 5px;
-      position: absolute;
-      height: 100%;
-      width: 200px;
-      background: rgba(24, 3, 3, 0.8);
-      border-radius: 10px;
-      transition-duration: 0.2s;
-      transition-delay: 0.4s;
-      opacity: 0;
-      cursor: pointer;
-
-      .movie-title {
-        color: white;
-        font-size: 23px;
-        position: absolute;
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        
-        width: 90%;
-        margin: auto;
-        text-align: center;
-      }
-
-      .btn-details {
-        position: absolute;
-        top: 73%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 5px;
-        background: rgba(255, 255, 255, 0.7);
-        color: black;
-        padding: 6px 8px;
-
-        &:hover {
-          transition: 0.2s;
-          transform: translate(-50%, -50%) scale(1.05);
-          background: rgba(255, 255, 255, 1);
-        }
-      }
-
-      .btn-book-seats {
-        position: absolute;
-        top: 88%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 5px;
-        background: rgba(255, 255, 255, 0.7);
-        color: black; 
-        font-size: 16px;
-        padding: 6px 8px;
-        
-        &:hover {
-          transition: 0.2s;
-          transform: scale(1.05) translate(-50%, -50%);
-          background: rgba(255, 255, 255, 1);
-        }
-      }
-    &:hover {
-      opacity: 1;
-      transform: scale(1.02);
-    }
-  }
-   
-  }
 }
 
 h1 {
@@ -179,117 +77,5 @@ h1 {
 
 main {
   padding-top: 70px;
-  .carousel-inner {
-    width: 90%;
-    margin-right: auto;
-    margin-left: auto;
-    border-radius: 20px;
-
-    
-
-    .carousel-item {
-      // position: relative;
-      .carousel-caption {
-        top: 37%;
-
-        .toptitle {
-          font-size: 60px;
-          text-shadow:1px 0 10px black;
-        }
-
-        .topButtons {
-          border-radius: 5px;
-          background: rgba(255, 255, 255, 0.7);
-          font-size: 20px;
-          padding: 10px;
-          margin: 5px;
-          color: black;
-
-          &:hover {
-            transition: 0.2s;
-            transform: scale(1.05);
-            background: rgba(255, 255, 255, 1);
-          }
-        }
-      
-      }
-    }
-  }
 }
 
-.modal-header {
-  display: flex;
-  flex-direction: column;
-  .modal-title {
-    margin: 0 auto;
-    font-size: 30px;
-  }
-  .btn-close {
-    padding-top: 10px;
-  }
-
-  #tagline {
-    padding-top: 10px;
-    font-style: italic;
-  }
-}
-
-.modal-body {
-  display: flex;
-  flex-direction: column;
-  #genre-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .genre {
-      background-color: rgba(22, 210, 235, 0.3);
-      padding: 10px;
-      border-radius: 5px;
-      margin: 0 5px 0 5px;
-    }
-  }
-
-  .trailer-container {
-    align-self: center;
-    position: relative;
-    width: 90%;
-    padding-top: 56.25%;
-    margin-top: 20px;
-
-    #trailer {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-    }
-  }
-  #trailer-name {
-    align-self: center;
-  }
-  h5 {
-    margin-top: 15px;
-    align-self: center;
-    font-size: 25px;
-    font-weight: bold;
-  }
-
-  #overview {
-    align-self: center;
-    text-align: justify;
-    width: 90%;
-  }
-
-  #cast {
-    align-self: center;
-    // width: 90%;
-
-    .cast {
-      margin: 0 5px 0 5px;
-    }
-  }
-  #crew {
-    align-self: center;
-  }
-}

@@ -1,0 +1,26 @@
+.btn-details, .btn-book-seats {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.7);
+  color: black;
+  padding: 6px 8px;
+
+  &:hover {
+    transition: 0.2s;
+    transform: translate(-50%, -50%) scale(1.05);
+    background: rgba(255, 255, 255, 1);
+    color: black;
+  }
+}
+
+.btn-details {
+  top: 73%;
+  left: 50%;
+}
+
+.btn-book-seats {
+  top: 88%;
+  left: 50%;
+  font-size: 16px;
+}
