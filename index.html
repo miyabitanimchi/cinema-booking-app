@@ -50,25 +50,25 @@
               Search by Gerne
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="#" data-value="28">Action</a></li>
-              <li><a class="dropdown-item" href="#" data-value="12">Adventure</a></li>
-              <li><a class="dropdown-item" href="#" data-value="16">Animation</a></li>
-              <li><a class="dropdown-item" href="#" data-value="35">Comedy</a></li>
-              <li><a class="dropdown-item" href="#" data-value="80">Crime</a></li>
-              <li><a class="dropdown-item" href="#" data-value="99">Documentary</a></li>
-              <li><a class="dropdown-item" href="#" data-value="18">Drama</a></li>
-              <li><a class="dropdown-item" href="#" data-value="10751">Famimly</a></li>
-              <li><a class="dropdown-item" href="#" data-value="14">Fantasy</a></li>
-              <li><a class="dropdown-item" href="#" data-value="36">History</a></li>
-              <li><a class="dropdown-item" href="#" data-value="27">Horror</a></li>
-              <li><a class="dropdown-item" href="#" data-value="10402">Music</a></li>
-              <li><a class="dropdown-item" href="#" data-value="9648">Mystery</a></li>
-              <li><a class="dropdown-item" href="#" data-value="10749">Romance</a></li>
-              <li><a class="dropdown-item" href="#" data-value="878">Science Fiction</a></li>
-              <li><a class="dropdown-item" href="#" data-value="10770">TV Movie</a></li>
-              <li><a class="dropdown-item" href="#" data-value="53">Thriller</a></li>
-              <li><a class="dropdown-item" href="#" data-value="10752">War</a></li>
-              <li><a class="dropdown-item" href="#" data-value="37">Western</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" onclick="sortMovieByGenre(28)" data-value="28">Action</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" onclick="sortMovieByGenre(12)" data-value="12">Adventure</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" onclick="sortMovieByGenre(16)" data-value="16">Animation</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" onclick="sortMovieByGenre(35)" data-value="35">Comedy</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" onclick="sortMovieByGenre(80)" data-value="80">Crime</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" onclick="sortMovieByGenre(99)" data-value="99">Documentary</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" onclick="sortMovieByGenre(18)" data-value="18">Drama</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" onclick="sortMovieByGenre(10751)" data-value="10751">Famimly</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" onclick="sortMovieByGenre(14)" data-value="14">Fantasy</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" onclick="sortMovieByGenre(36)" data-value="36">History</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" onclick="sortMovieByGenre(27)" data-value="27">Horror</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" onclick="sortMovieByGenre(10402)" data-value="10402">Music</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" onclick="sortMovieByGenre(9648)" data-value="9648">Mystery</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" onclick="sortMovieByGenre(10749)" data-value="10749">Romance</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" onclick="sortMovieByGenre(878)" data-value="878">Science Fiction</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" onclick="sortMovieByGenre(10770)" data-value="10770">TV Movie</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" onclick="sortMovieByGenre(53)" data-value="53">Thriller</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" onclick="sortMovieByGenre(10752)" data-value="10752">War</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" onclick="sortMovieByGenre(37)" data-value="37">Western</a></li>
             </ul>
           </div>
           <!-- search box -->
@@ -145,7 +145,7 @@
 
   </main>
 
-  <!-- Modal -->
+  <!-- Modal for details-->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="movieTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
@@ -191,7 +191,7 @@
         <h5 class="modal-title" id="exampleModal2Label">Modal title</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body modal-body-for-genre">
         ...
       </div>
       <div class="modal-footer">

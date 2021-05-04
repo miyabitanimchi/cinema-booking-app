@@ -1,4 +1,5 @@
 let counterForFunc = 0;
+let movieData, movieDataPopular, movieDataAnime;
 const API_KEY = "6de0031ff9ff7891e34f8d09f9cbc39b";
 
 const fetchAPI = async () => {
@@ -11,11 +12,11 @@ const fetchAPI = async () => {
     // console.log(responseAnime);
     console.log(testAPI2);
     // console.log(responseDailyPopular);
-    const movieData = response.data;
-    const movieDataPopular = responsePopular.data;
-    const movieDataAnime = responseAnime.data;
+    movieData = response.data;
+    movieDataPopular = responsePopular.data;
+    movieDataAnime = responseAnime.data;
 
-    // console.log(movieData);
+    console.log(movieData);
     // console.log(movieDataPopular);
     buildTopPage(movieData);
     createElements(movieData, "movie-collection-now-playing", "position-for-img-and-caption", ".position-for-img-and-caption", "mask", ".mask");
@@ -196,4 +197,19 @@ const fetchAPIFromSearchForModal = async (movieId) => {
   catch(errors) {
     console.log(`Oops, errors! ${errors}`);
   }
+}
+
+// genre modal
+const sortMovieByGenre = (genreId) => {
+  // for now playing
+  let genreArrForNowPlaying = [];
+  for (let i = 0; i < movieData.results.length; i++) {
+      if (movieData.results[i].genre_ids.includes(genreId)) {
+        genreArrForNowPlaying.push(movieData.results[i]);
+        console.log("yay yay yay");
+      } else {
+        console.log("no no no");
+      }
+  }
+  console.log(genreArrForNowPlaying);
 }
