@@ -50,22 +50,22 @@ const showPrice = () => {
 const showMovieImage = () => {
   switch (movies.selectedIndex) {
     case 0:
-      imgElement.src = "../img/forrestGump.jpeg";
+      imgElement.src = "./img/forrestGump.jpeg";
       break;
     case 1:
-      imgElement.src = "../img/borat.jpeg";
+      imgElement.src = "./img/borat.jpeg";
       break;
     case 2:
-      imgElement.src = "../img/standByMe.jpeg";
+      imgElement.src = "./img/standByMe.jpeg";
       break;
     case 3:
-      imgElement.src = "../img/princessMononoke.jpeg";
+      imgElement.src = "./img/princessMononoke.jpeg";
       break;
     case 4:
-      imgElement.src = "../img/spiderMan_into_the_space.jpg";
+      imgElement.src = "./img/spiderMan_into_the_space.jpg";
       break;
     case 5:
-      imgElement.src = "../img/interstellar.jpeg";
+      imgElement.src = "./img/interstellar.jpeg";
       break;
   }
   localStorage.setItem("storedSelectedIndex", movies.selectedIndex);

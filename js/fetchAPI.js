@@ -49,6 +49,7 @@ const createElements = (data, elementId, containerElement, containerElementQuery
     const btnBookSeats = document.createElement("a");
     btnBookSeats.href = "./bookingSeats.html";
     btnBookSeats.classList.add("btn-book-seats", "btn", "btn-primary");
+    btnBookSeats.setAttribute("onclick", `fetchAPIForBookSeats(${data.results[i].id})`);
 
     const btnAttributes = ["type", "data-bs-toggle", "data-bs-target", "onclick"];
     const btnAttrValues = ["button", "modal", "#exampleModal", `fetchAPIForModal(${data.results[i].id})`];
@@ -73,9 +74,11 @@ const buildTopPage = (data) => {
     const elForTopImg = document.querySelectorAll(".topimage");
     const elForTopTitle = document.querySelectorAll(".toptitle");
     const elForTopBtns = document.querySelectorAll(".modal-class")
+    const elForTopBookSeatsBtns = document.querySelectorAll(".topBookSeats");
     for (let i = 0; i < elForTopImg.length; i++) {
       let randomNum = Math.floor(Math.random() * data.results.length);
       elForTopBtns[i].setAttribute("onclick", `fetchAPIForModal(${data.results[randomNum].id})`);
+      elForTopBookSeatsBtns[i].setAttribute("onclick", `fetchAPIForBookSeats(${data.results[randomNum].id})`);
       // console.log(randomNum);
       console.log(elForTopBtns);
       elForTopImg[i].src = `https://image.tmdb.org/t/p/w500/${data.results[randomNum].backdrop_path}`
@@ -170,13 +173,11 @@ const showDetails = (details, trailerData, credits) => {
 
 
 // fetch API from search box for modal 
-// const getIdAndPassToParam = (details) => {
   document.querySelector("#searchBox").addEventListener("input", () => {
     const val = document.getElementById("searchBox").value;
     const dataValue = document.querySelector("#datalist option[value='"+val+"']").dataset.value;
     document.getElementById("submitBtn").setAttribute("onclick", `fetchAPIFromSearchForModal(${dataValue})`);
   })
-// }
 
 const fetchAPIFromSearchForModal = async (movieId) => {
   try {
