@@ -9,10 +9,10 @@ let totalSeatsArr = [];
 let selectedtotalSeatsArr = [];
 let totalMoviePrice, totalNumOfSeats;
 
-movies.addEventListener("change", () => {
-  showPrice();
-  showMovieImage();
-});
+// movies.addEventListener("change", () => {
+//   showPrice();
+//   showMovieImage();
+// });
 
 seats.forEach((seat) => {
   totalSeatsArr.push(seat);
@@ -27,7 +27,7 @@ seats.forEach((seat) => {
     }
     e.target.classList.toggle("selected");
     localStorage.setItem("storedSeatsArr", JSON.stringify(selectedtotalSeatsArr));
-    showPrice();
+    // showPrice();
     showNumOfSeats();
   });
 });
@@ -40,11 +40,11 @@ const showNumOfSeats = () => {
 }
 
 // Show total price
-const showPrice = () => {
-  document.getElementById("price").innerText = movies.value;
-  totalMoviePrice = (movies.value) * (selectedtotalSeatsArr.length);
-  document.getElementById("totalPrice").innerText = totalMoviePrice;
-}
+// const showPrice = () => {
+//   document.getElementById("price").innerText = movies.value;
+//   totalMoviePrice = (movies.value) * (selectedtotalSeatsArr.length);
+//   document.getElementById("totalPrice").innerText = totalMoviePrice;
+// }
 
 // Show a movie image 
 const showMovieImage = () => {
@@ -72,9 +72,9 @@ const showMovieImage = () => {
 }
 // Load / Reload
 window.addEventListener("load", () => {
-  movies.selectedIndex = localStorage.getItem("storedSelectedIndex");
-  showMovieImage();
-  showPrice();
+  // movies.selectedIndex = localStorage.getItem("storedSelectedIndex");
+  // showMovieImage();
+  // showPrice();
   if (localStorage.getItem("storedSeatsArr") !== null) {
     selectedtotalSeatsArr = JSON.parse(localStorage.getItem("storedSeatsArr"));
     for (let i = 0; i < selectedtotalSeatsArr.length; i++ ) {
@@ -82,7 +82,14 @@ window.addEventListener("load", () => {
       console.log(selectedtotalSeatsArr);
       seats[selectedtotalSeatsArr[i]].classList.toggle("selected");
     }
+    document.getElementById("movie-title-bookseats").innerText = localStorage.getItem("movieTitle");
+  document.getElementById("movieShowcase").appendChild(imgElement);
+  imgElement.src = `https://image.tmdb.org/t/p/w200/${localStorage.getItem("moviePosterpath")}`;
     showNumOfSeats();
-    showPrice();
+    // showPrice();
   }
 });
+
+// window.addEventListener("load", ()=> {
+  
+// })

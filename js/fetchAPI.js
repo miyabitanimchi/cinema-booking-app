@@ -8,7 +8,8 @@ const fetchAPI = async () => {
     const responsePopular = await axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`);
     const responseDailyPopular = await axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
     const responseAnime = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=16`);
-    const testAPI2 = await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`)
+    const testAPI2 = await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`);
+    
     // console.log(responseAnime);
     console.log(testAPI2);
     // console.log(responseDailyPopular);
@@ -53,7 +54,7 @@ const createElements = (data, elementId, containerElement, containerElementQuery
     const btnBookSeats = document.createElement("a");
     btnBookSeats.href = "./bookingSeats.html";
     btnBookSeats.classList.add("btn-book-seats", "btn", "btn-primary");
-    btnBookSeats.setAttribute("onclick", `fetchAPIForBookSeats(${data[i].id})`);
+    btnBookSeats.setAttribute("onclick", `fetchAPIForBookSeats(${data[i].id}, "${data[i].title}", "${data[i].poster_path}")`);
 
     const btnAttributes = ["type", "data-bs-toggle", "data-bs-target", "onclick",  "data-bs-dismiss"];
     const btnAttrValues = ["button", "modal", "#exampleModal", `fetchAPIForModal(${data[i].id})`, "modal"];
@@ -82,7 +83,7 @@ const buildTopPage = (data) => {
     for (let i = 0; i < elForTopImg.length; i++) {
       let randomNum = Math.floor(Math.random() * data.length);
       elForTopBtns[i].setAttribute("onclick", `fetchAPIForModal(${data[randomNum].id})`);
-      elForTopBookSeatsBtns[i].setAttribute("onclick", `fetchAPIForBookSeats(${data[randomNum].id})`);
+      elForTopBookSeatsBtns[i].setAttribute("onclick", `fetchAPIForBookSeats(${data[randomNum].id}, "${data[randomNum].title}", "${data[randomNum].poster_path}")`);
       elForTopImg[i].src = `https://image.tmdb.org/t/p/w500/${data[randomNum].backdrop_path}`
       elForTopTitle[i].innerText = data[randomNum].title;
     }
@@ -178,7 +179,7 @@ const fetchAPIFromSearchForModal = async (movieId) => {
   try {
     const responseTrailer = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`);
     const responseDetails = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`);
-    const responseCredits = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`)
+    const responseCredits = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`);
    
     console.log(responseDetails);
     console.log(responseTrailer);
@@ -218,6 +219,8 @@ const sortMovieByGenre = (genreId, genreName) => {
   console.log(genresArr);
 }
 
-// const fetchAPIForBookSeats = (movieId) => {
-
-// }
+const fetchAPIForBookSeats = (movieId, movieTitle, moviePosterPath) => {
+  console.log(movieTitle);
+  localStorage.setItem("movieTitle", movieTitle);
+  localStorage.setItem("moviePosterpath", moviePosterPath);
+}

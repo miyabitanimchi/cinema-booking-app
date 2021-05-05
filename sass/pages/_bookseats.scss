@@ -24,8 +24,13 @@ body {
       @include max-screen($breakpoint-mobile) {
         @include sizeForMovieAndSeatContainer-minsize;
       }
-    
       background: $bColorForMovieAndSeatContainer;
+
+      #movie-title-bookseats {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+      }
 
       .select-box {
         align-self: center;

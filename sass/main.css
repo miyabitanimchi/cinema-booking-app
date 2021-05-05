@@ -290,6 +290,16 @@ body .main-container .movie-container {
   }
 }
 
+body .main-container .movie-container #movie-title-bookseats {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 15px;
+}
+
 body .main-container .movie-container .select-box {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
@@ -501,7 +511,6 @@ body .selected {
   display: -ms-flexbox;
   display: flex;
   overflow-x: scroll;
-  overflow-y: visible;
   padding-bottom: 20px;
 }
 
