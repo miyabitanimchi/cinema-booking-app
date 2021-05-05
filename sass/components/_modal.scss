@@ -75,7 +75,30 @@
 }
 
 // modal for genre
-.modal-body-for-genre {
+#movie-collection-by-genre {
   display: flex;
+  justify-content: center;
+  align-self: center;
   flex-wrap: wrap;
+
+  img {
+    margin: 5px 5px 5px 5px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0s;
+    transition-duration: 0.2s;
+    transition-delay: 0.4s;
+  }
+  .movie-title {
+    color: white;
+    font-size: 23px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 90%;
+    margin: auto;
+    text-align: center;
+  }
 }

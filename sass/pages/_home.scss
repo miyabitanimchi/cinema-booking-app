@@ -27,11 +27,11 @@
     }
 }
 
-.position-for-img-and-caption, .position-for-img-and-caption-for-popular, .position-for-img-and-caption-for-anime {
+.position-for-img-and-caption, .position-for-img-and-caption-for-popular, .position-for-img-and-caption-for-anime, .position-for-img-and-caption-for-genre {
   position: relative;
 }
 
-.mask, .mask-popular, .mask-anime {
+.mask, .mask-popular, .mask-anime, .mask-genre {
   margin: 0px 5px 0px 5px;
   position: absolute;
   height: 100%;

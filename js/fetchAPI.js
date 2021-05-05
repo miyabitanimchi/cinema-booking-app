@@ -12,9 +12,10 @@ const fetchAPI = async () => {
     // console.log(responseAnime);
     console.log(testAPI2);
     // console.log(responseDailyPopular);
-    movieData = response.data;
-    movieDataPopular = responsePopular.data;
-    movieDataAnime = responseAnime.data;
+    movieData = response.data.results;
+    movieDataPopular = responsePopular.data.results;
+    movieDataAnime = responseAnime.data.results;
+    console.log(movieDataAnime);
 
     console.log(movieData);
     // console.log(movieDataPopular);
@@ -31,7 +32,7 @@ const fetchAPI = async () => {
 
 // for 
 const createElements = (data, elementId, containerElement, containerElementQuery, maskElement, maskElementQuery) => {
-  for (let i = 0; i < data.results.length; i++) {
+  for (let i = 0; i < data.length; i++) {
     const divContainerElement = document.createElement("div");
     divContainerElement.classList.add(containerElement);
     const divContainerElementforPAndBtn = document.createElement("div");
@@ -53,19 +54,19 @@ const createElements = (data, elementId, containerElement, containerElementQuery
     const btnBookSeats = document.createElement("a");
     btnBookSeats.href = "./bookingSeats.html";
     btnBookSeats.classList.add("btn-book-seats", "btn", "btn-primary");
-    btnBookSeats.setAttribute("onclick", `fetchAPIForBookSeats(${data.results[i].id})`);
+    btnBookSeats.setAttribute("onclick", `fetchAPIForBookSeats(${data[i].id})`);
 
-    const btnAttributes = ["type", "data-bs-toggle", "data-bs-target", "onclick"];
-    const btnAttrValues = ["button", "modal", "#exampleModal", `fetchAPIForModal(${data.results[i].id})`];
+    const btnAttributes = ["type", "data-bs-toggle", "data-bs-target", "onclick",  "data-bs-dismiss"];
+    const btnAttrValues = ["button", "modal", "#exampleModal", `fetchAPIForModal(${data[i].id})`, "modal"];
 
     for (let j = 0; j < btnAttrValues.length; j++) {
       btnDetails.setAttribute(btnAttributes[j], btnAttrValues[j]);
     }
 
     elPositionForImgAndCaption[i].appendChild(imgElement);
-    imgElement.src = `https://image.tmdb.org/t/p/w200/${data.results[i].poster_path}`;
+    imgElement.src = `https://image.tmdb.org/t/p/w200/${data[i].poster_path}`;
     elMask[i].appendChild(pElement);
-    pElement.innerText = data.results[i].title;
+    pElement.innerText = data[i].title;
     elMask[i].appendChild(btnDetails);
     elMask[i].appendChild(btnBookSeats);
     btnDetails.innerHTML = "See Details";
@@ -80,35 +81,35 @@ const buildTopPage = (data) => {
     const elForTopBtns = document.querySelectorAll(".modal-class")
     const elForTopBookSeatsBtns = document.querySelectorAll(".topBookSeats");
     for (let i = 0; i < elForTopImg.length; i++) {
-      let randomNum = Math.floor(Math.random() * data.results.length);
-      elForTopBtns[i].setAttribute("onclick", `fetchAPIForModal(${data.results[randomNum].id})`);
-      elForTopBookSeatsBtns[i].setAttribute("onclick", `fetchAPIForBookSeats(${data.results[randomNum].id})`);
+      let randomNum = Math.floor(Math.random() * data.length);
+      elForTopBtns[i].setAttribute("onclick", `fetchAPIForModal(${data[randomNum].id})`);
+      elForTopBookSeatsBtns[i].setAttribute("onclick", `fetchAPIForBookSeats(${data[randomNum].id})`);
       // console.log(randomNum);
       console.log(elForTopBtns);
-      elForTopImg[i].src = `https://image.tmdb.org/t/p/w500/${data.results[randomNum].backdrop_path}`
-      elForTopTitle[i].innerText = data.results[randomNum].title;
+      elForTopImg[i].src = `https://image.tmdb.org/t/p/w500/${data[randomNum].backdrop_path}`
+      elForTopTitle[i].innerText = data[randomNum].title;
     }
 }
 const createSearchFunc = (data) => {
   const datalist = document.getElementById("datalist");
   if (counterForFunc > 0) {
     let currentOptionLength = datalist.childNodes.length;
-    for (j = currentOptionLength; j < (currentOptionLength + data.results.length); j++)  {
+    for (j = currentOptionLength; j < (currentOptionLength + data.length); j++)  {
       const optionElement = document.createElement("option");
       datalist.appendChild(optionElement);
-      // datalist.childNodes[j].value = data.results[j-currentOptionLength].id;
-      datalist.childNodes[j].setAttribute("data-value", `${data.results[j-currentOptionLength].id}`);
-      // datalist.childNodes[j].innerText = data.results[j-currentOptionLength].title;
-      datalist.childNodes[j].setAttribute("value", `${data.results[j-currentOptionLength].title}`);
+      // datalist.childNodes[j].value = data[j-currentOptionLength].id;
+      datalist.childNodes[j].setAttribute("data-value", `${data[j-currentOptionLength].id}`);
+      // datalist.childNodes[j].innerText = data[j-currentOptionLength].title;
+      datalist.childNodes[j].setAttribute("value", `${data[j-currentOptionLength].title}`);
     }
   } else {
-    for (i = 0; i < data.results.length; i++) {
+    for (i = 0; i < data.length; i++) {
       const optionElement = document.createElement("option");
       datalist.appendChild(optionElement);
-      // datalist.childNodes[i].value = data.results[i].id;
-      datalist.childNodes[i].setAttribute("data-value", `${data.results[i].id}`);
-      // datalist.childNodes[i].innerText = data.results[i].title;
-      datalist.childNodes[i].setAttribute("value", `${data.results[i].title}`);
+      // datalist.childNodes[i].value = data[i].id;
+      datalist.childNodes[i].setAttribute("data-value", `${data[i].id}`);
+      // datalist.childNodes[i].innerText = data[i].title;
+      datalist.childNodes[i].setAttribute("value", `${data[i].title}`);
     }
   }
   counterForFunc++;
@@ -201,15 +202,27 @@ const fetchAPIFromSearchForModal = async (movieId) => {
 
 // genre modal
 const sortMovieByGenre = (genreId) => {
+  document.getElementById("movie-collection-by-genre").innerHTML = "";
   // for now playing
-  let genreArrForNowPlaying = [];
-  for (let i = 0; i < movieData.results.length; i++) {
-      if (movieData.results[i].genre_ids.includes(genreId)) {
-        genreArrForNowPlaying.push(movieData.results[i]);
-        console.log("yay yay yay");
-      } else {
-        console.log("no no no");
-      }
+  let genresArr = [];
+  for (let i = 0; i < movieData.length; i++) {
+    if (movieData[i].genre_ids.includes(genreId)) {
+      genresArr.push(movieData[i]);
+    } else {
+    }
   }
-  console.log(genreArrForNowPlaying);
+  for (let i = 0; i < movieDataPopular.length; i++) {
+    if (movieDataPopular[i].genre_ids.includes(genreId)) {
+      genresArr.push(movieDataPopular[i]);
+    } else {
+    }
+  }
+  for (let i = 0; i < movieDataAnime.length; i++) {
+    if (movieDataAnime[i].genre_ids.includes(genreId)) {
+      genresArr.push(movieDataAnime[i]);
+    } else {
+    }
+  }
+  createElements(genresArr, "movie-collection-by-genre", "position-for-img-and-caption-for-genre", ".position-for-img-and-caption-for-genre", "mask-genre", ".mask-genre");
+  console.log(genresArr);
 }
