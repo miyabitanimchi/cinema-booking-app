@@ -12,7 +12,7 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">CinemaInThePandemic</a>
+        <a class="navbar-brand" href="#"><i class="fas fa-film"></i> CinemaInThePandemic</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -48,25 +48,25 @@
               Search by Gerne
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModal2" onclick="sortMovieByGenre(28)" data-value="28">Action</a></li>
-              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModal2" onclick="sortMovieByGenre(12)" data-value="12">Adventure</a></li>
-              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModal2" onclick="sortMovieByGenre(16)" data-value="16">Animation</a></li>
-              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModal2" onclick="sortMovieByGenre(35)" data-value="35">Comedy</a></li>
-              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModal2" onclick="sortMovieByGenre(80)" data-value="80">Crime</a></li>
-              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModal2" onclick="sortMovieByGenre(99)" data-value="99">Documentary</a></li>
-              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModal2" onclick="sortMovieByGenre(18)" data-value="18">Drama</a></li>
-              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModal2" onclick="sortMovieByGenre(10751)" data-value="10751">Famimly</a></li>
-              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModal2" onclick="sortMovieByGenre(14)" data-value="14">Fantasy</a></li>
-              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModal2" onclick="sortMovieByGenre(36)" data-value="36">History</a></li>
-              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModal2" onclick="sortMovieByGenre(27)" data-value="27">Horror</a></li>
-              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModal2" onclick="sortMovieByGenre(10402)" data-value="10402">Music</a></li>
-              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModal2" onclick="sortMovieByGenre(9648)" data-value="9648">Mystery</a></li>
-              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModal2" onclick="sortMovieByGenre(10749)" data-value="10749">Romance</a></li>
-              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModal2" onclick="sortMovieByGenre(878)" data-value="878">Science Fiction</a></li>
-              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModal2" onclick="sortMovieByGenre(10770)" data-value="10770">TV Movie</a></li>
-              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModal2" onclick="sortMovieByGenre(53)" data-value="53">Thriller</a></li>
-              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModal2" onclick="sortMovieByGenre(10752)" data-value="10752">War</a></li>
-              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModal2" onclick="sortMovieByGenre(37)" data-value="37">Western</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalForGenres" onclick="sortMovieByGenre(28, 'Action')" data-value="Action">Action</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalForGenres" onclick="sortMovieByGenre(12, 'Adventure')" data-value="Adventure">Adventure</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalForGenres" onclick="sortMovieByGenre(16, 'Animation')" data-value="Animation">Animation</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalForGenres" onclick="sortMovieByGenre(35, 'Comedy')" data-value="Comedy">Comedy</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalForGenres" onclick="sortMovieByGenre(80, 'Crime')" data-value="Crime">Crime</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalForGenres" onclick="sortMovieByGenre(99, 'Documentary')" data-value="Documentary">Documentary</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalForGenres" onclick="sortMovieByGenre(18, 'Drama')" data-value="Drama">Drama</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalForGenres" onclick="sortMovieByGenre(10751, 'Family')" data-value="Family">Family</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalForGenres" onclick="sortMovieByGenre(14, 'Fantasy')" data-value="Fantasy">Fantasy</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalForGenres" onclick="sortMovieByGenre(36, 'History')" data-value="History">History</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalForGenres" onclick="sortMovieByGenre(27, 'Horror')" data-value="Horror">Horror</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalForGenres" onclick="sortMovieByGenre(10402, 'Music')" data-value="Music">Music</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalForGenres" onclick="sortMovieByGenre(9648, 'Mystery')" data-value="Mystery">Mystery</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalForGenres" onclick="sortMovieByGenre(10749, 'Romance')" data-value="Romance">Romance</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalForGenres" onclick="sortMovieByGenre(878, 'Science Fiction')" data-value="Science Fiction">Science Fiction</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalForGenres" onclick="sortMovieByGenre(10770, 'TV Movie')" data-value="TV Movie">TV Movie</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalForGenres" onclick="sortMovieByGenre(53, 'Thriller')" data-value="Thriller">Thriller</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalForGenres" onclick="sortMovieByGenre(10752, 'War')" data-value="War">War</a></li>
+              <li><a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalForGenres" onclick="sortMovieByGenre(37, 'Western')" data-value="Western">Western</a></li>
             </ul>
           </div>
           <!-- search box -->
@@ -175,18 +175,12 @@
   </div>
   <!-- Modal -->
 
-  <!-- Modal for Gernes -->
-  <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModal2Label" aria-hidden="true">
+  <!-- Modal for Genres -->
+<div class="modal fade" id="modalForGenres" tabindex="-1" aria-labelledby="modalForGenresLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModal2Label">Modal title</h5>
+        <h5 class="modal-title" id="modalForGenresLabel">Modal title</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -265,7 +259,7 @@
   <!-- Grid container -->
 
   <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+  <div class="text-center p-3 footer-copyright">
     © 2021 Miyabi Tanimichi
     <a class="text-dark" href="https://github.com/miyabitanimchi/cinema-booking-app">GitHub<i class="fab fa-github-alt"></i></a>
   </div>

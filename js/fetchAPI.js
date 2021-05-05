@@ -40,7 +40,6 @@ const createElements = (data, elementId, containerElement, containerElementQuery
 
     document.getElementById(elementId).appendChild(divContainerElement);
     document.getElementById(elementId).childNodes[i].appendChild(divContainerElementforPAndBtn);
-    // console.log(divContainerElement);
   }
   const elPositionForImgAndCaption = document.querySelectorAll(containerElementQuery);
   const elMask = document.querySelectorAll(maskElementQuery);
@@ -84,8 +83,6 @@ const buildTopPage = (data) => {
       let randomNum = Math.floor(Math.random() * data.length);
       elForTopBtns[i].setAttribute("onclick", `fetchAPIForModal(${data[randomNum].id})`);
       elForTopBookSeatsBtns[i].setAttribute("onclick", `fetchAPIForBookSeats(${data[randomNum].id})`);
-      // console.log(randomNum);
-      console.log(elForTopBtns);
       elForTopImg[i].src = `https://image.tmdb.org/t/p/w500/${data[randomNum].backdrop_path}`
       elForTopTitle[i].innerText = data[randomNum].title;
     }
@@ -97,23 +94,18 @@ const createSearchFunc = (data) => {
     for (j = currentOptionLength; j < (currentOptionLength + data.length); j++)  {
       const optionElement = document.createElement("option");
       datalist.appendChild(optionElement);
-      // datalist.childNodes[j].value = data[j-currentOptionLength].id;
       datalist.childNodes[j].setAttribute("data-value", `${data[j-currentOptionLength].id}`);
-      // datalist.childNodes[j].innerText = data[j-currentOptionLength].title;
       datalist.childNodes[j].setAttribute("value", `${data[j-currentOptionLength].title}`);
     }
   } else {
     for (i = 0; i < data.length; i++) {
       const optionElement = document.createElement("option");
       datalist.appendChild(optionElement);
-      // datalist.childNodes[i].value = data[i].id;
       datalist.childNodes[i].setAttribute("data-value", `${data[i].id}`);
-      // datalist.childNodes[i].innerText = data[i].title;
       datalist.childNodes[i].setAttribute("value", `${data[i].title}`);
     }
   }
   counterForFunc++;
-  console.log(counterForFunc);
 }
 
 fetchAPI();
@@ -168,14 +160,12 @@ const showDetails = (details, trailerData, credits) => {
     if (i === 4) {
       document.getElementById("cast").childNodes[i].innerText = `${credits.data.cast[i]["name"]}`;
     }
-    // console.log(document.getElementById("crew").childNodes[i]);
     console.log(document.getElementById("cast").childNodes[i]);
   }
 
   // show director
   document.getElementById("director").innerText = credits.data.crew[0]["name"];
 }
-
 
 // fetch API from search box for modal 
   document.querySelector("#searchBox").addEventListener("input", () => {
@@ -201,7 +191,7 @@ const fetchAPIFromSearchForModal = async (movieId) => {
 }
 
 // genre modal
-const sortMovieByGenre = (genreId) => {
+const sortMovieByGenre = (genreId, genreName) => {
   document.getElementById("movie-collection-by-genre").innerHTML = "";
   // for now playing
   let genresArr = [];
@@ -223,6 +213,11 @@ const sortMovieByGenre = (genreId) => {
     } else {
     }
   }
+  document.getElementById("modalForGenresLabel").innerText = genreName;
   createElements(genresArr, "movie-collection-by-genre", "position-for-img-and-caption-for-genre", ".position-for-img-and-caption-for-genre", "mask-genre", ".mask-genre");
   console.log(genresArr);
 }
+
+// const fetchAPIForBookSeats = (movieId) => {
+
+// }
