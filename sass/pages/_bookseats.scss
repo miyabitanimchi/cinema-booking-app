@@ -138,6 +138,59 @@ body {
           .aisle-left {
             margin-left: 15px;
           }
+
+          .each-seat-container {
+            position: relative;
+            width: 20px;
+            height: 20px;
+
+            
+
+            .seat {
+              position: absolute;
+              z-index: 99;
+
+              &:hover {
+                z-index: 100;
+              }
+
+              &:hover + .balloon {
+                opacity: 1;
+                z-index: 99;
+              }
+            }
+
+            .balloon {
+              position: absolute;
+              width: 30px;
+              height: 20px;
+              color: #555;
+              font-size: 16px;
+              background: #e0edff;
+              opacity: 0;
+              top: -150%;
+              left: -10%;
+              z-index: 0;
+              border-radius: 7px 7px 0 0;
+              
+              &:after {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                margin-left: -15px;
+                border: 15px solid transparent;
+                border-top: 15px solid #e0edff;     
+                z-index: 0;
+              }
+
+              .balloon-word {
+                display: flex;
+                justify-content: center;
+              }
+            }
+          }
+          }
         }  
       }
       .showcase-container {
@@ -184,5 +237,5 @@ body {
   .selected {
     background: rgb(87, 123, 241)!important;
   }
-}
+
 
