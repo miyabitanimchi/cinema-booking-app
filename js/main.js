@@ -1,18 +1,36 @@
 const movies = document.getElementById("movies");
 const seats = document.querySelectorAll(".seat:not(.occupied)");
 const numOfSeats = document.getElementById("numOfSeats");
+const numOfAdults = document.getElementById("numOfAdults");
+const numOfYouthSeniorStudent = document.getElementById("numOfYouthSeniorStudent");
 
 const imgElement = document.createElement("img");
 document.getElementById("movieShowcase").appendChild(imgElement);
 
 let totalSeatsArr = [];
 let selectedtotalSeatsArr = [];
-let totalMoviePrice, totalNumOfSeats;
+let totalMoviePrice, totalTicketPrice, totalNumOfSeats;
+let priceAdult = priceOthers = 0;
 
 // movies.addEventListener("change", () => {
 //   showPrice();
 //   showMovieImage();
 // });
+
+numOfAdults.addEventListener("change", () => {
+  priceAdult = numOfAdults.value * 15;
+  showTotalPrice();
+});
+numOfYouthSeniorStudent.addEventListener("change", () => {
+  priceOthers = numOfYouthSeniorStudent.value * 12;
+  showTotalPrice();
+});
+
+const showTotalPrice = () => {
+  totalTicketPrice = priceAdult + priceOthers;
+  document.getElementById("totalPrice").innerText = totalTicketPrice;
+  localStorage.setItem("totalTicketPrice", totalTicketPrice);
+}
 
 seats.forEach((seat) => {
   totalSeatsArr.push(seat);
@@ -34,7 +52,7 @@ seats.forEach((seat) => {
 
 // Show the total number of the seats selected
 const showNumOfSeats = () => {
-  // Culculate the number of seats selected
+  // Calculate the number of seats selected
   totalNumOfSeats = selectedtotalSeatsArr.length;
   numOfSeats.innerText = totalNumOfSeats;
 }
@@ -100,11 +118,21 @@ window.onload= () => {
   }
 };
 
-let currentDate = moment().format('MMMM Do YYYY');
-console.log(currentDate);
+document.getElementById("buyTicketBtn").addEventListener("click", () => {
+  let totalNumOfPeople = Number(numOfAdults.value) + Number(numOfYouthSeniorStudent.value);
+  if (selectedtotalSeatsArr.length > totalNumOfPeople || selectedtotalSeatsArr.length < totalNumOfPeople) {
+    alert("The number of selected seats and the number of tickets are incorrect");
+  } else {
+    alert("ok!");
+  }
+  console.log(totalNumOfPeople);
+});
 
-let tmrwDate = moment().add(1,'days').format('MMMM Do YYYY');
-console.log(tmrwDate);
+// let currentDate = moment().format('MMMM Do YYYY');
+// console.log(currentDate);
 
-let dayAfterTmrw = moment().add(2, 'days').format('MMMM Do YYYY');
-console.log(dayAfterTmrw);
+// let tmrwDate = moment().add(1,'days').format('MMMM Do YYYY');
+// console.log(tmrwDate);
+
+// let dayAfterTmrw = moment().add(2, 'days').format('MMMM Do YYYY');
+// console.log(dayAfterTmrw);

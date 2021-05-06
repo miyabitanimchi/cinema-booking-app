@@ -234,6 +234,7 @@
       <div id="chooseNumContainer">
         <label for="numOfTickets">Adult: </label>
         <select name="numOfAdults" id="numOfAdults">
+          <option value="0">0</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -246,7 +247,8 @@
           <option value="10">10</option>
         </select>
         <label for="numOfTickets">Youth/Senior/Student: </label>
-        <select name="numOfKidsOrSenior" id="numOfKidsOrSenior">
+        <select name="numOfYouthSeniorStudent" id="numOfYouthSeniorStudent">
+          <option value="0">0</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -264,7 +266,7 @@
   <div class="price-container">
     <p class="seat-and-price-info">You have selected <span id="numOfSeats">0</span> seats, and the total price is 
       $<span id="totalPrice">0</span>.</p>
-    <button id="testbtn">Buy ticket</button>
+    <button id="buyTicketBtn">Buy ticket</button>
     <button id="resetSeats">Clear</button>
   </div>
   <footer class="bg-light text-center text-lg-start">
