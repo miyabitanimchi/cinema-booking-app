@@ -75,7 +75,8 @@ document.getElementById("resetSeats").addEventListener("click", () => {
   localStorage.removeItem("storedSeatsArr");
   seats.forEach((seat) => {
     seat.classList.remove("selected");
-  })
+  });
+  numOfSeats.innerText = 0;
 })
 // Load / Reload
 window.onload= () => {

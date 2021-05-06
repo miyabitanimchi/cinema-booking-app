@@ -48,7 +48,7 @@ body {
       #movieShowcase {
         height: 300px;
         width: 250px;
-        margin-top: 25px;
+        margin-top: 10px;
         background: $colorForMovieImgContainer;
         align-self: center;
         border-radius: 10px;
@@ -62,6 +62,15 @@ body {
             height: 200px;
             width: 160px;
           }
+        }
+      }
+
+      #chooseNumContainer {
+        align-self: center;
+        margin-top: 10px;
+
+        #numOfAdults, #numOfKidsOrSenior {
+          margin-right: 15px;
         }
       }
 

@@ -270,8 +270,8 @@ body .main-container .movie-container {
       -ms-flex-direction: column;
           flex-direction: column;
   margin-right: 10px;
-  height: 400px;
-  width: 400px;
+  height: 450px;
+  width: 450px;
   border-radius: 20px;
   background: #d4e2f3;
 }
@@ -329,7 +329,7 @@ body .main-container .movie-container #moviedate {
 body .main-container .movie-container #movieShowcase {
   height: 300px;
   width: 250px;
-  margin-top: 25px;
+  margin-top: 10px;
   background: #fefbd8;
   -ms-flex-item-align: center;
       align-self: center;
@@ -360,6 +360,17 @@ body .main-container .movie-container #movieShowcase img {
   }
 }
 
+body .main-container .movie-container #chooseNumContainer {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-top: 10px;
+}
+
+body .main-container .movie-container #chooseNumContainer #numOfAdults, body .main-container .movie-container #chooseNumContainer #numOfKidsOrSenior {
+  margin-right: 15px;
+}
+
 body .main-container .movie-container .movie-price {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
@@ -375,8 +386,8 @@ body .main-container .seat-container {
       -ms-flex-direction: column;
           flex-direction: column;
   margin-left: 10px;
-  height: 400px;
-  width: 400px;
+  height: 450px;
+  width: 450px;
   border-radius: 20px;
   background: #d4e2f3;
 }
