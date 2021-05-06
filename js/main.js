@@ -19,10 +19,12 @@ let priceAdult = priceOthers = 0;
 
 numOfAdults.addEventListener("change", () => {
   priceAdult = numOfAdults.value * 15;
+  localStorage.setItem("numOfAdults", numOfAdults.selectedIndex);
   showTotalPrice();
 });
 numOfYouthSeniorStudent.addEventListener("change", () => {
   priceOthers = numOfYouthSeniorStudent.value * 12;
+  localStorage.setItem("numOfYouthSeniorStudent", numOfYouthSeniorStudent.selectedIndex);
   showTotalPrice();
 });
 
@@ -90,7 +92,14 @@ const showMovieImage = () => {
 }
 
 document.getElementById("resetSeats").addEventListener("click", () => {
+  selectedtotalSeatsArr = [];
   localStorage.removeItem("storedSeatsArr");
+  localStorage.removeItem("totalTicketPrice");
+  localStorage.removeItem("numOfAdults");
+  localStorage.removeItem("numOfYouthSeniorStudent");
+  numOfAdults.selectedIndex = "0";
+  numOfYouthSeniorStudent.selectedIndex = "0";
+  document.getElementById("totalPrice").innerText = 0;
   seats.forEach((seat) => {
     seat.classList.remove("selected");
   });
@@ -98,10 +107,19 @@ document.getElementById("resetSeats").addEventListener("click", () => {
 })
 // Load / Reload
 window.onload= () => {
+  
   document.getElementById("movie-title-bookseats").innerText = localStorage.getItem("movieTitle");
+  numOfAdults.selectedIndex = localStorage.getItem("numOfAdults");
+  numOfYouthSeniorStudent.selectedIndex = localStorage.getItem("numOfYouthSeniorStudent");
   imgElement.src = `https://image.tmdb.org/t/p/w200/${localStorage.getItem("moviePosterpath")}`;
   document.getElementById("tomorrow").innerText = moment().add(1,'days').format('MMMM Do, YYYY');
   document.getElementById("dayafter").innerText = moment().add(2, 'days').format('MMMM Do, YYYY');
+  
+  if (localStorage.getItem("totalTicketPrice") !== null) {
+    document.getElementById("totalPrice").innerText = localStorage.getItem("totalTicketPrice");
+  } else {
+    document.getElementById("totalPrice").innerText = 0;
+  }
   // movies.selectedIndex = localStorage.getItem("storedSelectedIndex");
   // showMovieImage();
   // showPrice();
