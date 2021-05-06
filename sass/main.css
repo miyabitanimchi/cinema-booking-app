@@ -321,6 +321,11 @@ body .main-container .movie-container .select-box {
   }
 }
 
+body .main-container .movie-container #moviedate {
+  margin: 0 auto;
+  width: 50%;
+}
+
 body .main-container .movie-container #movieShowcase {
   height: 300px;
   width: 250px;
@@ -512,6 +517,28 @@ body .selected {
   display: flex;
   overflow-x: scroll;
   padding-bottom: 20px;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+#movie-collection-now-playing::-webkit-scrollbar, #movie-collection-popular::-webkit-scrollbar, #movie-collection-anime::-webkit-scrollbar {
+  width: 0;
+}
+
+#movie-collection-now-playing::-webkit-scrollbar-track, #movie-collection-popular::-webkit-scrollbar-track, #movie-collection-anime::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+#movie-collection-now-playing::-webkit-scrollbar-thumb, #movie-collection-popular::-webkit-scrollbar-thumb, #movie-collection-anime::-webkit-scrollbar-thumb {
+  background: #069992;
+  border-radius: 10px;
+}
+
+#movie-collection-now-playing::-webkit-scrollbar-thumb:hover, #movie-collection-popular::-webkit-scrollbar-thumb:hover, #movie-collection-anime::-webkit-scrollbar-thumb:hover {
+  background: #04534f;
 }
 
 #movie-collection-now-playing img, #movie-collection-popular img, #movie-collection-anime img {

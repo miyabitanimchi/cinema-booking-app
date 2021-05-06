@@ -3,6 +3,28 @@
   display: flex;
   overflow-x: scroll;
   padding-bottom: 20px;
+
+  /* width */
+&::-webkit-scrollbar {
+  width: 0;
+}
+
+/* Track */
+&::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Handle */
+&::-webkit-scrollbar-thumb {
+  background: rgb(6, 153, 146);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+&::-webkit-scrollbar-thumb:hover {
+  background: rgb(4, 83, 79);
+}
    
     img {
       margin: 0px 5px 0px 5px;

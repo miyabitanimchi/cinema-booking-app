@@ -70,8 +70,19 @@ const showMovieImage = () => {
   }
   localStorage.setItem("storedSelectedIndex", movies.selectedIndex);
 }
+
+document.getElementById("resetSeats").addEventListener("click", () => {
+  localStorage.removeItem("storedSeatsArr");
+  seats.forEach((seat) => {
+    seat.classList.remove("selected");
+  })
+})
 // Load / Reload
-window.addEventListener("load", () => {
+window.onload= () => {
+  document.getElementById("movie-title-bookseats").innerText = localStorage.getItem("movieTitle");
+  imgElement.src = `https://image.tmdb.org/t/p/w200/${localStorage.getItem("moviePosterpath")}`;
+  document.getElementById("tomorrow").innerText = moment().add(1,'days').format('MMMM Do, YYYY');
+  document.getElementById("dayafter").innerText = moment().add(2, 'days').format('MMMM Do, YYYY');
   // movies.selectedIndex = localStorage.getItem("storedSelectedIndex");
   // showMovieImage();
   // showPrice();
@@ -82,14 +93,17 @@ window.addEventListener("load", () => {
       console.log(selectedtotalSeatsArr);
       seats[selectedtotalSeatsArr[i]].classList.toggle("selected");
     }
-    document.getElementById("movie-title-bookseats").innerText = localStorage.getItem("movieTitle");
-  document.getElementById("movieShowcase").appendChild(imgElement);
-  imgElement.src = `https://image.tmdb.org/t/p/w200/${localStorage.getItem("moviePosterpath")}`;
+    
     showNumOfSeats();
     // showPrice();
   }
-});
+};
 
-// window.addEventListener("load", ()=> {
-  
-// })
+let currentDate = moment().format('MMMM Do YYYY');
+console.log(currentDate);
+
+let tmrwDate = moment().add(1,'days').format('MMMM Do YYYY');
+console.log(tmrwDate);
+
+let dayAfterTmrw = moment().add(2, 'days').format('MMMM Do YYYY');
+console.log(dayAfterTmrw);
