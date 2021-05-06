@@ -284,7 +284,7 @@ body .main-container .movie-container {
 
 @media screen and (max-width: 400px) {
   body .main-container .movie-container {
-    height: 350px;
+    height: 450px;
     width: 350px;
     border-radius: 10px;
   }
@@ -360,15 +360,24 @@ body .main-container .movie-container #movieShowcase img {
   }
 }
 
-body .main-container .movie-container #chooseNumContainer {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  margin-top: 10px;
+body .main-container .movie-container #priceTable {
+  margin-top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-body .main-container .movie-container #chooseNumContainer #numOfAdults, body .main-container .movie-container #chooseNumContainer #numOfKidsOrSenior {
-  margin-right: 15px;
+body .main-container .movie-container #priceTable p {
+  margin-right: 13px;
+}
+
+@media screen and (max-width: 820px) {
+  body .main-container .movie-container #priceTable p {
+    font-size: 13.5px;
+  }
 }
 
 body .main-container .movie-container .movie-price {
@@ -401,7 +410,7 @@ body .main-container .seat-container {
 
 @media screen and (max-width: 400px) {
   body .main-container .seat-container {
-    height: 350px;
+    height: 450px;
     width: 350px;
     border-radius: 10px;
   }
@@ -511,6 +520,17 @@ body .main-container .seat-container .showcase-container .seat-showcase .selecte
 
 body .main-container .seat-container .showcase-container .seat-showcase .occupied {
   background: #fd7200;
+}
+
+body .main-container .seat-container #chooseNumContainer {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-top: 10px;
+}
+
+body .main-container .seat-container #chooseNumContainer #numOfAdults, body .main-container .seat-container #chooseNumContainer #numOfKidsOrSenior {
+  margin-right: 15px;
 }
 
 body .price-container {

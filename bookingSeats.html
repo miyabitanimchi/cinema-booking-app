@@ -74,35 +74,11 @@
           <option id="dayafter" value="dayafter"></option>
         </select>
       <div id="movieShowcase"></div>
-      <div id="chooseNumContainer">
-        <label for="numOfTickets">Adult: </label>
-        <select name="numOfAdults" id="numOfAdults">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-        </select>
-        <label for="numOfTickets">Kids and Senior: </label>
-        <select name="numOfKidsOrSenior" id="numOfKidsOrSenior">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-        </select>
+      <div id="priceTable">
+        <p>• Adult(18+): $15</p>
+        <p>• Youth(4-17)/Senior/Student: $12</p>
       </div>
-      <p class="movie-price">Price: $<span id="price">10</span></p>
+      <!-- <p class="movie-price">Price: $<span id="price">10</span></p> -->
     </div>
 
     <div class="seat-container">
@@ -254,6 +230,34 @@
         <div class="seat-showcase"><div class="example-seat available"></div><span>Available</span></div>
         <div class="seat-showcase"><div class="example-seat selected"></div><span>Selected</span></div>
         <div class="seat-showcase"><div class="example-seat occupied"></div><span>Occupied</span></div>
+      </div>
+      <div id="chooseNumContainer">
+        <label for="numOfTickets">Adult: </label>
+        <select name="numOfAdults" id="numOfAdults">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+        <label for="numOfTickets">Youth/Senior/Student: </label>
+        <select name="numOfKidsOrSenior" id="numOfKidsOrSenior">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
       </div>
     </div>
   </div>

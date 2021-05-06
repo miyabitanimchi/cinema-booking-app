@@ -65,12 +65,18 @@ body {
         }
       }
 
-      #chooseNumContainer {
-        align-self: center;
-        margin-top: 10px;
+      
+      #priceTable {
+        margin-top: 15px;
+        display: flex;
+        // align-self: center;
+        justify-content: center;
 
-        #numOfAdults, #numOfKidsOrSenior {
-          margin-right: 15px;
+        p {
+          margin-right: 13px;
+          @include max-screen($breakpoint-tablet) {
+            font-size: 13.5px;
+          }
         }
       }
 
@@ -157,6 +163,14 @@ body {
           .occupied {
             background: $colorForOccupiedSeats;
           }
+        }
+      }
+      #chooseNumContainer {
+        align-self: center;
+        margin-top: 10px;
+
+        #numOfAdults, #numOfKidsOrSenior {
+          margin-right: 15px;
         }
       }
     }
