@@ -25,10 +25,6 @@
   align-items: center;
 }
 
-// Media query
-$breakpoint-tablet: 820px;
-$breakpoint-mobile: 400px;
-
 @mixin max-screen($break-point) {
   @media screen and (max-width: $break-point) {
     @content;
