@@ -3,6 +3,8 @@
   display: flex;
   overflow-x: scroll;
   padding-bottom: 20px;
+  width: 90%;
+  margin: 0 auto;
 
   /* width */
 &::-webkit-scrollbar {

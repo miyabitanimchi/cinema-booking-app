@@ -47,7 +47,7 @@
           <!-- <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search for a movie..." aria-label="Search" autocomplete="on" list="datalist" id="searchBox">
             <datalist id="datalist"></datalist>
-            <button class="btn btn-outline-success" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id="submitBtn"><i class="fas fa-search"></i></button>
+            <button class="btn btn-outline-success" type="button" data-bs-toggle="modal" data-bs-target="#modalForCheckout" id="submitBtn"><i class="fas fa-search"></i></button>
           </form> -->
         </div>
       </div>
@@ -76,7 +76,7 @@
       <div id="movieShowcase"></div>
       <div id="priceTable">
         <p>• Adult(18+): $15</p>
-        <p>• Youth(4-17)/Senior/Student: $12</p>
+        <p>• Youth(4-17)/Senior(65+)/Student: $12</p>
       </div>
       <!-- <p class="movie-price">Price: $<span id="price">10</span></p> -->
     </div>
@@ -586,9 +586,40 @@
   <div class="price-container">
     <p class="seat-and-price-info">You have selected <span id="numOfSeats">0</span> seats, and the total price is 
       $<span id="totalPrice">0</span>.</p>
-    <button id="buyTicketBtn">Buy ticket</button>
+    <button id="buyTicketBtn" data-bs-toggle="modal" data-bs-target="#modalForCheckout">Buy ticket</button>
     <button id="resetSeats">Clear All</button>
   </div>
+
+  <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalForCheckout">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="modalForCheckout" tabindex="-1" aria-labelledby="modalForCheckoutLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalForCheckoutLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p id="notice"></p>
+        <p id="confirm-date"></p>
+        <div id="confirm-numOfTickets">
+          <p id="confirm-adult"></p>
+          <p id="confirm-others"></p>
+          <p id="confirm-totalPrice"></p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
+        <button type="button" class="btn btn-primary">Buy Tickets</button>
+      </div>
+    </div>
+  </div>
+</div>
+
   <footer class="bg-light text-center text-lg-start">
     <!-- Grid container -->
     <div class="container p-4">

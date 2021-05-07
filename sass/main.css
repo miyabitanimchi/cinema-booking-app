@@ -50,23 +50,34 @@ body {
   font-size: 16px;
 }
 
-.carousel-inner {
-  width: 90%;
+.carousel .carousel-inner {
+  width: 87%;
   margin-right: auto;
   margin-left: auto;
   border-radius: 20px;
 }
 
-.carousel-inner .carousel-item .carousel-caption {
-  top: 37%;
+.carousel .carousel-inner .carousel-item {
+  height: 100%;
 }
 
-.carousel-inner .carousel-item .carousel-caption .toptitle {
+.carousel .carousel-inner .carousel-item .carousel-caption {
+  bottom: 20%;
+}
+
+.carousel .carousel-inner .carousel-item .carousel-caption .topimage {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.carousel .carousel-inner .carousel-item .carousel-caption .toptitle {
   font-size: 60px;
   text-shadow: 1px 0 10px black;
 }
 
-.carousel-inner .carousel-item .carousel-caption .topButtons {
+.carousel .carousel-inner .carousel-item .carousel-caption .topButtons {
   border-radius: 5px;
   background: rgba(255, 255, 255, 0.7);
   font-size: 20px;
@@ -75,12 +86,16 @@ body {
   color: black;
 }
 
-.carousel-inner .carousel-item .carousel-caption .topButtons:hover {
+.carousel .carousel-inner .carousel-item .carousel-caption .topButtons:hover {
   -webkit-transition: 0.2s;
   transition: 0.2s;
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
   background: white;
+}
+
+.carousel .carousel-inner .carousel-control-prev, .carousel .carousel-inner .carousel-control-next {
+  margin: 0 !important;
 }
 
 .modal-header {
@@ -602,6 +617,8 @@ body .main-container #chooseNumContainer #numOfAdults, body .main-container #cho
   display: flex;
   overflow-x: scroll;
   padding-bottom: 20px;
+  width: 90%;
+  margin: 0 auto;
   /* width */
   /* Track */
   /* Handle */

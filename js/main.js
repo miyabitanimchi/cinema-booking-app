@@ -1,8 +1,8 @@
-const movies = document.getElementById("movies");
 const seats = document.querySelectorAll(".seat:not(.occupied)");
 const numOfSeats = document.getElementById("numOfSeats");
 const numOfAdults = document.getElementById("numOfAdults");
 const numOfYouthSeniorStudent = document.getElementById("numOfYouthSeniorStudent");
+const moviedate = document.getElementById("moviedate");
 
 const imgElement = document.createElement("img");
 document.getElementById("movieShowcase").appendChild(imgElement);
@@ -12,16 +12,17 @@ let selectedtotalSeatsArr = [];
 let totalMoviePrice, totalTicketPrice, totalNumOfSeats;
 let priceAdult = priceOthers = 0;
 
-// movies.addEventListener("change", () => {
-//   showPrice();
-//   showMovieImage();
-// });
-
 numOfAdults.addEventListener("change", () => {
   priceAdult = numOfAdults.value * 15;
   localStorage.setItem("numOfAdults", numOfAdults.selectedIndex);
   showTotalPrice();
 });
+
+document.getElementById("moviedate").addEventListener("change", () => {
+  localStorage.setItem("moviedate", moviedate.selectedIndex);
+  console.log(moviedate.selectedIndex);
+})
+
 numOfYouthSeniorStudent.addEventListener("change", () => {
   priceOthers = numOfYouthSeniorStudent.value * 12;
   localStorage.setItem("numOfYouthSeniorStudent", numOfYouthSeniorStudent.selectedIndex);
@@ -59,38 +60,6 @@ const showNumOfSeats = () => {
   numOfSeats.innerText = totalNumOfSeats;
 }
 
-// Show total price
-// const showPrice = () => {
-//   document.getElementById("price").innerText = movies.value;
-//   totalMoviePrice = (movies.value) * (selectedtotalSeatsArr.length);
-//   document.getElementById("totalPrice").innerText = totalMoviePrice;
-// }
-
-// Show a movie image 
-const showMovieImage = () => {
-  switch (movies.selectedIndex) {
-    case 0:
-      imgElement.src = "./img/forrestGump.jpeg";
-      break;
-    case 1:
-      imgElement.src = "./img/borat.jpeg";
-      break;
-    case 2:
-      imgElement.src = "./img/standByMe.jpeg";
-      break;
-    case 3:
-      imgElement.src = "./img/princessMononoke.jpeg";
-      break;
-    case 4:
-      imgElement.src = "./img/spiderMan_into_the_space.jpg";
-      break;
-    case 5:
-      imgElement.src = "./img/interstellar.jpeg";
-      break;
-  }
-  localStorage.setItem("storedSelectedIndex", movies.selectedIndex);
-}
-
 document.getElementById("resetSeats").addEventListener("click", () => {
   selectedtotalSeatsArr = [];
   localStorage.removeItem("storedSeatsArr");
@@ -99,17 +68,19 @@ document.getElementById("resetSeats").addEventListener("click", () => {
   localStorage.removeItem("numOfYouthSeniorStudent");
   numOfAdults.selectedIndex = "0";
   numOfYouthSeniorStudent.selectedIndex = "0";
+  moviedate.selectedIndex = "0";
   document.getElementById("totalPrice").innerText = 0;
   seats.forEach((seat) => {
     seat.classList.remove("selected");
   });
   numOfSeats.innerText = 0;
+  priceAdult = priceOthers = 0;
 })
 // Load / Reload
 window.onload= () => {
-  
   document.getElementById("movie-title-bookseats").innerText = localStorage.getItem("movieTitle");
   numOfAdults.selectedIndex = localStorage.getItem("numOfAdults");
+  moviedate.selectedIndex = localStorage.getItem("moviedate");
   numOfYouthSeniorStudent.selectedIndex = localStorage.getItem("numOfYouthSeniorStudent");
   imgElement.src = `https://image.tmdb.org/t/p/w200/${localStorage.getItem("moviePosterpath")}`;
   document.getElementById("tomorrow").innerText = moment().add(1,'days').format('MMMM Do, YYYY');
@@ -137,20 +108,25 @@ window.onload= () => {
 };
 
 document.getElementById("buyTicketBtn").addEventListener("click", () => {
+  document.getElementById("notice").innerText = "";
+  document.getElementById("modalForCheckoutLabel").innerText = "";
+  document.getElementById("confirm-date").innerText = "";
+  document.getElementById("confirm-adult").innerText = "";
+  document.getElementById("confirm-others").innerText = "";
+  document.getElementById("confirm-totalPrice").innerText = "";
   let totalNumOfPeople = Number(numOfAdults.value) + Number(numOfYouthSeniorStudent.value);
+
   if (selectedtotalSeatsArr.length > totalNumOfPeople || selectedtotalSeatsArr.length < totalNumOfPeople) {
-    alert("The number of selected seats and the number of tickets are incorrect");
+    document.getElementById("notice").innerText = "The number of selected seats and the number of tickets are incorrect.";
+    
+  } else if (totalNumOfPeople === 0) {
+    document.getElementById("notice").innerText = "Please choose the number of tickets.";
   } else {
-    alert("ok!");
+    document.getElementById("modalForCheckoutLabel").innerText = localStorage.getItem("movieTitle");
+    document.getElementById("confirm-date").innerText = `• Date: ${moviedate.options[moviedate.selectedIndex].text}`;
+    document.getElementById("confirm-adult").innerText = `• Adult(18+): ${numOfAdults.value}`;
+    document.getElementById("confirm-others").innerText = `• Youth(4-17)/Senior(65+)/Student: ${numOfYouthSeniorStudent.value}`;
+    document.getElementById("confirm-totalPrice").innerText = `• Total Price: $${document.getElementById("totalPrice").innerText}`;
   }
   console.log(totalNumOfPeople);
 });
-
-// let currentDate = moment().format('MMMM Do YYYY');
-// console.log(currentDate);
-
-// let tmrwDate = moment().add(1,'days').format('MMMM Do YYYY');
-// console.log(tmrwDate);
-
-// let dayAfterTmrw = moment().add(2, 'days').format('MMMM Do YYYY');
-// console.log(dayAfterTmrw);

@@ -118,8 +118,8 @@ const fetchAPIForModal = async (movieId) => {
     const responseCredits = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`)
    
     console.log(responseDetails);
-    console.log(responseTrailer);
-    console.log(responseCredits);
+    // console.log(responseTrailer);
+    // console.log(responseCredits);
     showDetails(responseDetails, responseTrailer, responseCredits);
   }
   catch(errors) {
@@ -132,6 +132,9 @@ const showDetails = (details, trailerData, credits) => {
   const childDivs = document.getElementsByClassName("genre");
   console.log(childDivs);
   console.log(genreContainer.hasChildNodes());
+
+  // append onclickAttribute on book seats 
+  document.getElementById("bookseatsBtnInDetails").setAttribute("onclick", `fetchAPIForBookSeats(${details.data.id}, "${details.data.title}", "${details.data.poster_path}")`);
 
   // resset childnodes (divs for previous genres)
   while (genreContainer.hasChildNodes()) {
