@@ -48,7 +48,6 @@ seats.forEach((seat) => {
     }
     e.target.classList.toggle("selected");
     localStorage.setItem("storedSeatsArr", JSON.stringify(selectedtotalSeatsArr));
-    // showPrice();
     showNumOfSeats();
   });
 });
@@ -94,11 +93,9 @@ window.onload= () => {
   if (localStorage.getItem("storedSeatsArr") !== null) {
     selectedtotalSeatsArr = JSON.parse(localStorage.getItem("storedSeatsArr"));
     for (let i = 0; i < selectedtotalSeatsArr.length; i++ ) {
-      console.log(seats[selectedtotalSeatsArr[i]]);
-      console.log(selectedtotalSeatsArr);
       seats[selectedtotalSeatsArr[i]].classList.toggle("selected");
     }
-    
+
     showNumOfSeats();
   }
 };
@@ -119,7 +116,7 @@ document.getElementById("buyTicketBtn").addEventListener("click", () => {
     
   } else if (totalNumOfPeople === 0) {
     document.getElementById("backOrBuyTicketsBtn").innerText = "Back to booking page";
-    document.getElementById("notice").innerText = "Please choose the number of tickets.";
+    document.getElementById("notice").innerText = "Please select seats and the number of tickets.";
   } else {
     document.getElementById("backOrBuyTicketsBtn").innerText = "Buy Tickets";
     document.getElementById("modalForCheckoutLabel").innerText = localStorage.getItem("movieTitle");

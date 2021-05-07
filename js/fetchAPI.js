@@ -10,21 +10,17 @@ const fetchAPI = async () => {
     const responseAnime = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=16`);
     const testAPI2 = await axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`);
     
-    // console.log(responseAnime);
     console.log(testAPI2);
-    // console.log(responseDailyPopular);
     movieData = response.data.results;
     movieDataPopular = responsePopular.data.results;
     movieDataAnime = responseAnime.data.results;
     console.log(movieDataAnime);
 
     console.log(movieData);
-    // console.log(movieDataPopular);
     buildTopPage(movieData);
     createElements(movieData, "movie-collection-now-playing", "position-for-img-and-caption", ".position-for-img-and-caption", "mask", ".mask");
     createElements(movieDataPopular, "movie-collection-popular", "position-for-img-and-caption-for-popular", ".position-for-img-and-caption-for-popular", "mask-popular", ".mask-popular");
     createElements(movieDataAnime, "movie-collection-anime", "position-for-img-and-caption-for-anime", ".position-for-img-and-caption-for-anime", "mask-anime", ".mask-anime");
-    // createElements()
   } 
   catch(errors) {
     console.log(`Oops, errors! ${errors}`);
@@ -75,13 +71,14 @@ const createElements = (data, elementId, containerElement, containerElementQuery
   createSearchFunc(data);
 }
 
+// build carousel part
 const buildTopPage = (data) => {
   const elForTopImg = document.querySelectorAll(".topimage");
   const elForTopTitle = document.querySelectorAll(".toptitle");
   const elForTopBtns = document.querySelectorAll(".modal-class")
   const elForTopBookSeatsBtns = document.querySelectorAll(".topBookSeats");
 
-  // make not duplicate numbers
+  // make not duplicate numbers for indices
   let randomNumArr = [];
   for (let i = 0; i < elForTopImg.length; i++) {
     while (true) {
@@ -92,6 +89,7 @@ const buildTopPage = (data) => {
       }
     }
   }
+  // create carousel
   for (let i = 0; i < randomNumArr.length; i++) {
     elForTopBtns[i].setAttribute("onclick", `fetchAPIForModal(${data[randomNumArr[i]].id})`);
     elForTopBookSeatsBtns[i].setAttribute("onclick", `fetchAPIForBookSeats(${data[randomNumArr[i]].id}, "${data[randomNumArr[i]].title}", "${data[randomNumArr[i]].poster_path}")`);
@@ -99,7 +97,7 @@ const buildTopPage = (data) => {
     elForTopTitle[i].innerText = data[randomNumArr[i]].title;
   }
 }
-
+// create options for search box
 const createSearchFunc = (data) => {
   const datalist = document.getElementById("datalist");
   if (counterForFunc > 0) {
@@ -123,12 +121,12 @@ const createSearchFunc = (data) => {
 
 fetchAPI();
 
+// onclick function on See Details btn
 const fetchAPIForModal = async (movieId) => {
   try {
     const responseTrailer = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`);
     const responseDetails = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`);
-    const responseCredits = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`)
-   
+    const responseCredits = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`);
     console.log(responseDetails);
     showDetails(responseDetails, responseTrailer, responseCredits);
   }
@@ -137,6 +135,7 @@ const fetchAPIForModal = async (movieId) => {
   }
 }
 
+// create details for inside of modals
 const showDetails = (details, trailerData, credits) => {
   const genreContainer = document.getElementById("genre-container");
   const childDivs = document.getElementsByClassName("genre");
@@ -188,15 +187,13 @@ const showDetails = (details, trailerData, credits) => {
     document.getElementById("submitBtn").setAttribute("onclick", `fetchAPIFromSearchForModal(${dataValue})`);
   })
 
+// onclick function on search submit btn
 const fetchAPIFromSearchForModal = async (movieId) => {
   try {
     const responseTrailer = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`);
     const responseDetails = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`);
     const responseCredits = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`);
    
-    console.log(responseDetails);
-    console.log(responseTrailer);
-    console.log(responseCredits);
     showDetails(responseDetails, responseTrailer, responseCredits);
   }
   catch(errors) {

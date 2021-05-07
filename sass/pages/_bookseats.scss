@@ -4,7 +4,7 @@ body {
   .navbar-bookseats {
     position: fixed;
   }
-
+  
   .main-container {
     padding-top: 120px;
     @include display;
@@ -13,6 +13,7 @@ body {
     }
     
     .movie-container {
+      position: relative;
       display: flex;
       flex-direction: column;
       margin-right: 10px;
@@ -24,6 +25,12 @@ body {
         @include sizeForMovieAndSeatContainer-minsize;
       }
       background: $bColorForMovieAndSeatContainer;
+      .link-to-main-page {
+        position: absolute;
+        top: -7%;
+        left: 2%;
+        color: black;
+      }
 
       #movie-title-bookseats {
         display: flex;
