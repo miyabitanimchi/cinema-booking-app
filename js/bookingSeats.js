@@ -12,29 +12,34 @@ let selectedtotalSeatsArr = [];
 let totalMoviePrice, totalTicketPrice, totalNumOfSeats;
 let priceAdult = priceOthers = 0;
 
+// dropdown for adults
 numOfAdults.addEventListener("change", () => {
   priceAdult = numOfAdults.value * 15;
   localStorage.setItem("numOfAdults", numOfAdults.selectedIndex);
   showTotalPrice();
 });
 
-document.getElementById("moviedate").addEventListener("change", () => {
-  localStorage.setItem("moviedate", moviedate.selectedIndex);
-  console.log(moviedate.selectedIndex);
-})
-
+// dropdown for others
 numOfYouthSeniorStudent.addEventListener("change", () => {
   priceOthers = numOfYouthSeniorStudent.value * 12;
   localStorage.setItem("numOfYouthSeniorStudent", numOfYouthSeniorStudent.selectedIndex);
   showTotalPrice();
 });
 
+// dropdown for movie date
+document.getElementById("moviedate").addEventListener("change", () => {
+  localStorage.setItem("moviedate", moviedate.selectedIndex);
+  console.log(moviedate.selectedIndex);
+});
+
+// show total price
 const showTotalPrice = () => {
   totalTicketPrice = priceAdult + priceOthers;
   document.getElementById("totalPrice").innerText = totalTicketPrice;
   localStorage.setItem("totalTicketPrice", totalTicketPrice);
 }
 
+// selecting seats, put/remove selected color 
 seats.forEach((seat) => {
   totalSeatsArr.push(seat);
   seat.addEventListener("click", (e) => {
@@ -58,7 +63,7 @@ const showNumOfSeats = () => {
   totalNumOfSeats = selectedtotalSeatsArr.length;
   numOfSeats.innerText = totalNumOfSeats;
 }
-
+// reset seats, price, date, number of people
 document.getElementById("resetSeats").addEventListener("click", () => {
   selectedtotalSeatsArr = [];
   localStorage.removeItem("storedSeatsArr");
@@ -74,7 +79,8 @@ document.getElementById("resetSeats").addEventListener("click", () => {
   });
   numOfSeats.innerText = 0;
   priceAdult = priceOthers = 0;
-})
+});
+
 // Load / Reload
 window.onload= () => {
   document.getElementById("movie-title-bookseats").innerText = localStorage.getItem("movieTitle");
@@ -99,7 +105,7 @@ window.onload= () => {
     showNumOfSeats();
   }
 };
-
+// modal for checkout
 document.getElementById("buyTicketBtn").addEventListener("click", () => {
   // reset modal
   document.getElementById("notice").innerText = "";

@@ -555,8 +555,9 @@ body .main-container .movie-container #movieShowcase {
 }
 
 body .main-container .movie-container #movieShowcase img {
-  height: 250px;
+  height: 270px;
   width: 190px;
+  border-radius: 5px;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
