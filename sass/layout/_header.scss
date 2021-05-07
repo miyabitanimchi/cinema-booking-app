@@ -4,4 +4,29 @@
   width: 100%;
   background: rgba(255, 255, 255, 0.8)!important;
   padding: 15px 0;
+
+  .dropdown {
+    margin-right: 20px;
+
+    .dropdown-toggle {
+      background: rgb(160, 200, 250);
+      border: solid 1.5px rgb(255, 255, 255);
+      color: rgb(255, 255, 255);
+
+      &:hover {
+        background: rgb(113, 151, 255);
+      }
+    }
+  }
+
+  #submitBtn {
+    border: solid 1.5px rgb(83, 125, 243);
+    .fa-search {
+      color: rgb(83, 125, 243);
+    }
+
+    &:hover {
+      background: rgb(160, 200, 250);
+    }
+  }
 }

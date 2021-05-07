@@ -6,6 +6,7 @@
 body {
   margin: 0;
   padding: 0;
+  height: 100vh;
 }
 
 .navbar {
@@ -16,7 +17,37 @@ body {
   padding: 15px 0;
 }
 
-.footer-copyright {
+.navbar .dropdown {
+  margin-right: 20px;
+}
+
+.navbar .dropdown .dropdown-toggle {
+  background: #a0c8fa;
+  border: solid 1.5px white;
+  color: white;
+}
+
+.navbar .dropdown .dropdown-toggle:hover {
+  background: #7197ff;
+}
+
+.navbar #submitBtn {
+  border: solid 1.5px #537df3;
+}
+
+.navbar #submitBtn .fa-search {
+  color: #537df3;
+}
+
+.navbar #submitBtn:hover {
+  background: #a0c8fa;
+}
+
+footer {
+  margin-top: 50px;
+}
+
+footer .footer-copyright {
   background: #d4e2f3;
 }
 
@@ -616,8 +647,10 @@ body .main-container #chooseNumContainer #numOfAdults, body .main-container #cho
   display: -ms-flexbox;
   display: flex;
   overflow-x: scroll;
-  padding-bottom: 20px;
-  width: 90%;
+  overflow-y: hidden;
+  padding: 10px 0;
+  width: 87%;
+  height: 100%;
   margin: 0 auto;
   /* width */
   /* Track */
@@ -626,7 +659,7 @@ body .main-container #chooseNumContainer #numOfAdults, body .main-container #cho
 }
 
 #movie-collection-now-playing::-webkit-scrollbar, #movie-collection-popular::-webkit-scrollbar, #movie-collection-anime::-webkit-scrollbar {
-  width: 0;
+  height: 13px;
 }
 
 #movie-collection-now-playing::-webkit-scrollbar-track, #movie-collection-popular::-webkit-scrollbar-track, #movie-collection-anime::-webkit-scrollbar-track {
@@ -693,17 +726,12 @@ body .main-container #chooseNumContainer #numOfAdults, body .main-container #cho
           transform: scale(1.02);
 }
 
-#movie-collection-now-playing, #movie-collection-popular {
-  padding-top: 20px;
-}
-
 #movie-collection-popular {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
-  padding-bottom: 20px;
 }
 
 #movie-collection-popular img {
@@ -722,6 +750,11 @@ h1 {
   margin-top: 100px;
   text-align: center;
   overflow: visible;
+  font-weight: lighter;
+}
+
+h1 .fa-video {
+  color: #a0c8fa;
 }
 
 main {
