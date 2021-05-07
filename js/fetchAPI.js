@@ -177,8 +177,8 @@ const showDetails = (details, trailerData, credits) => {
     console.log(document.getElementById("cast").childNodes[i]);
   }
 
-  // show director
-  document.getElementById("director").innerText = credits.data.crew[0]["name"];
+  // show release date
+  document.getElementById("releasedate").innerText = details.data.release_date;
 }
 
 // fetch API from search box for modal 
@@ -242,7 +242,7 @@ const sortMovieByGenre = (genreId, genreName) => {
 
   console.log(filteredGenreArr);
 
-  document.getElementById("modalForGenresLabel").innerText = `Ganre: ${genreName}`;
+  document.getElementById("modalForGenresLabel").innerText = `Genre: ${genreName}`;
   createElements(filteredGenreArr, "movie-collection-by-genre", "position-for-img-and-caption-for-genre", ".position-for-img-and-caption-for-genre", "mask-genre", ".mask-genre");
 }
 

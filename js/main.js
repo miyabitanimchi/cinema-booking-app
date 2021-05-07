@@ -114,11 +114,14 @@ document.getElementById("buyTicketBtn").addEventListener("click", () => {
   let totalNumOfPeople = Number(numOfAdults.value) + Number(numOfYouthSeniorStudent.value);
 
   if (selectedtotalSeatsArr.length > totalNumOfPeople || selectedtotalSeatsArr.length < totalNumOfPeople) {
+    document.getElementById("backOrBuyTicketsBtn").innerText = "Back to booking page";
     document.getElementById("notice").innerText = "The number of selected seats and the number of tickets are incorrect.";
     
   } else if (totalNumOfPeople === 0) {
+    document.getElementById("backOrBuyTicketsBtn").innerText = "Back to booking page";
     document.getElementById("notice").innerText = "Please choose the number of tickets.";
   } else {
+    document.getElementById("backOrBuyTicketsBtn").innerText = "Buy Tickets";
     document.getElementById("modalForCheckoutLabel").innerText = localStorage.getItem("movieTitle");
     document.getElementById("confirm-date").innerText = `• Date: ${moviedate.options[moviedate.selectedIndex].text}`;
     document.getElementById("confirm-adult").innerText = `• Adult(18+): ${numOfAdults.value}`;

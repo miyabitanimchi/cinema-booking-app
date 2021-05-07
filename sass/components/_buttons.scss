@@ -24,3 +24,14 @@
   left: 50%;
   font-size: 16px;
 }
+
+#buyTicketBtn, #resetSeats {
+  border: 1px solid rgba(27, 27, 27, 0.8);
+  margin: 3px;
+  background: whitesmoke;
+
+  &:hover {
+    transition: 0.2s;
+    background: white;
+  }
+}

@@ -572,8 +572,8 @@
   <div class="price-container">
     <p class="seat-and-price-info">You have selected <span id="numOfSeats">0</span> seats, and the total price is 
       $<span id="totalPrice">0</span>.</p>
-    <button id="buyTicketBtn" data-bs-toggle="modal" data-bs-target="#modalForCheckout">Buy ticket</button>
-    <button id="resetSeats">Clear All</button>
+    <button id="buyTicketBtn" class="btn" data-bs-toggle="modal" data-bs-target="#modalForCheckout">Buy ticket</button>
+    <button id="resetSeats" class="btn">Clear All</button>
   </div>
 
   <!-- Button trigger modal -->
@@ -599,8 +599,8 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
-        <button type="button" class="btn btn-primary">Buy Tickets</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" id="backOrBuyTicketsBtn" class="btn btn-primary"></button>
       </div>
     </div>
   </div>

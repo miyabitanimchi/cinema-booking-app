@@ -81,6 +81,18 @@ footer .footer-copyright {
   font-size: 16px;
 }
 
+#buyTicketBtn, #resetSeats {
+  border: 1px solid rgba(27, 27, 27, 0.8);
+  margin: 3px;
+  background: whitesmoke;
+}
+
+#buyTicketBtn:hover, #resetSeats:hover {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  background: white;
+}
+
 .carousel .carousel-inner {
   width: 87%;
   margin-right: auto;
@@ -370,6 +382,13 @@ footer .footer-copyright {
       align-self: center;
 }
 
+.modal-body #releasedate {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding: 0;
+}
+
 #movie-collection-by-genre {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -406,6 +425,11 @@ footer .footer-copyright {
   width: 90%;
   margin: auto;
   text-align: center;
+}
+
+#notice {
+  text-align: center;
+  font-size: 18px;
 }
 
 body {
@@ -777,6 +801,8 @@ body .main-container #chooseNumContainer #numOfAdults, body .main-container #cho
 .price-container {
   text-align: center;
   margin-bottom: 30px;
+  margin-top: 20px;
+  font-size: 18px;
 }
 
 .selected {

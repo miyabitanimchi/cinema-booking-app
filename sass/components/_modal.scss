@@ -72,6 +72,10 @@
   #crew {
     align-self: center;
   }
+  #releasedate {
+    align-self: center;
+    padding: 0;
+  }
 }
 
 // modal for genre
@@ -101,4 +105,10 @@
     margin: auto;
     text-align: center;
   }
+}
+
+// modal for checkout
+#notice {
+  text-align: center;
+  font-size: 18px;
 }
