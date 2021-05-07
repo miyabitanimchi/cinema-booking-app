@@ -91,9 +91,6 @@ window.onload= () => {
   } else {
     document.getElementById("totalPrice").innerText = 0;
   }
-  // movies.selectedIndex = localStorage.getItem("storedSelectedIndex");
-  // showMovieImage();
-  // showPrice();
   if (localStorage.getItem("storedSeatsArr") !== null) {
     selectedtotalSeatsArr = JSON.parse(localStorage.getItem("storedSeatsArr"));
     for (let i = 0; i < selectedtotalSeatsArr.length; i++ ) {
@@ -103,11 +100,11 @@ window.onload= () => {
     }
     
     showNumOfSeats();
-    // showPrice();
   }
 };
 
 document.getElementById("buyTicketBtn").addEventListener("click", () => {
+  // reset modal
   document.getElementById("notice").innerText = "";
   document.getElementById("modalForCheckoutLabel").innerText = "";
   document.getElementById("confirm-date").innerText = "";

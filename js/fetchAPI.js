@@ -31,7 +31,7 @@ const fetchAPI = async () => {
   }
 }
 
-// for 
+// build main page
 const createElements = (data, elementId, containerElement, containerElementQuery, maskElement, maskElementQuery) => {
   for (let i = 0; i < data.length; i++) {
     const divContainerElement = document.createElement("div");
@@ -76,18 +76,30 @@ const createElements = (data, elementId, containerElement, containerElementQuery
 }
 
 const buildTopPage = (data) => {
-    const elForTopImg = document.querySelectorAll(".topimage");
-    const elForTopTitle = document.querySelectorAll(".toptitle");
-    const elForTopBtns = document.querySelectorAll(".modal-class")
-    const elForTopBookSeatsBtns = document.querySelectorAll(".topBookSeats");
-    for (let i = 0; i < elForTopImg.length; i++) {
-      let randomNum = Math.floor(Math.random() * data.length);
-      elForTopBtns[i].setAttribute("onclick", `fetchAPIForModal(${data[randomNum].id})`);
-      elForTopBookSeatsBtns[i].setAttribute("onclick", `fetchAPIForBookSeats(${data[randomNum].id}, "${data[randomNum].title}", "${data[randomNum].poster_path}")`);
-      elForTopImg[i].src = `https://image.tmdb.org/t/p/w500/${data[randomNum].backdrop_path}`
-      elForTopTitle[i].innerText = data[randomNum].title;
+  const elForTopImg = document.querySelectorAll(".topimage");
+  const elForTopTitle = document.querySelectorAll(".toptitle");
+  const elForTopBtns = document.querySelectorAll(".modal-class")
+  const elForTopBookSeatsBtns = document.querySelectorAll(".topBookSeats");
+
+  // make not duplicate numbers
+  let randomNumArr = [];
+  for (let i = 0; i < elForTopImg.length; i++) {
+    while (true) {
+      let temp = Math.floor(Math.random() * data.length);
+      if(!randomNumArr.includes(temp)) {
+        randomNumArr.push(temp);
+        break;
+      }
     }
+  }
+  for (let i = 0; i < randomNumArr.length; i++) {
+    elForTopBtns[i].setAttribute("onclick", `fetchAPIForModal(${data[randomNumArr[i]].id})`);
+    elForTopBookSeatsBtns[i].setAttribute("onclick", `fetchAPIForBookSeats(${data[randomNumArr[i]].id}, "${data[randomNumArr[i]].title}", "${data[randomNumArr[i]].poster_path}")`);
+    elForTopImg[i].src = `https://image.tmdb.org/t/p/w500/${data[randomNumArr[i]].backdrop_path}`
+    elForTopTitle[i].innerText = data[randomNumArr[i]].title;
+  }
 }
+
 const createSearchFunc = (data) => {
   const datalist = document.getElementById("datalist");
   if (counterForFunc > 0) {
@@ -118,8 +130,6 @@ const fetchAPIForModal = async (movieId) => {
     const responseCredits = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`)
    
     console.log(responseDetails);
-    // console.log(responseTrailer);
-    // console.log(responseCredits);
     showDetails(responseDetails, responseTrailer, responseCredits);
   }
   catch(errors) {
@@ -217,6 +227,10 @@ const sortMovieByGenre = (genreId, genreName) => {
     } else {
     }
   }
+  
+  if (genresArr.length === 0) {
+    document.getElementById("movie-collection-by-genre").innerText = "No movies found";
+  }
 
   // remove duplicate movies
   const genreArrIds = genresArr.map((elm) => {
@@ -228,7 +242,7 @@ const sortMovieByGenre = (genreId, genreName) => {
 
   console.log(filteredGenreArr);
 
-  document.getElementById("modalForGenresLabel").innerText = genreName;
+  document.getElementById("modalForGenresLabel").innerText = `Ganre: ${genreName}`;
   createElements(filteredGenreArr, "movie-collection-by-genre", "position-for-img-and-caption-for-genre", ".position-for-img-and-caption-for-genre", "mask-genre", ".mask-genre");
 }
 
