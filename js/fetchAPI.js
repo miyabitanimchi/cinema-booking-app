@@ -50,10 +50,10 @@ const createElements = (data, elementId, containerElement, containerElementQuery
     const pElement = document.createElement("p");
     pElement.classList.add("movie-title");
     const btnDetails = document.createElement("button");
-    btnDetails.classList.add("btn-details", "btn", "btn-primary");
+    btnDetails.classList.add("btn-details", "btn");
     const btnBookSeats = document.createElement("a");
     btnBookSeats.href = "./bookingSeats.html";
-    btnBookSeats.classList.add("btn-book-seats", "btn", "btn-primary");
+    btnBookSeats.classList.add("btn-book-seats", "btn");
     btnBookSeats.setAttribute("onclick", `fetchAPIForBookSeats(${data[i].id}, "${data[i].title}", "${data[i].poster_path}")`);
 
     const btnAttributes = ["type", "data-bs-toggle", "data-bs-target", "onclick",  "data-bs-dismiss"];
@@ -217,9 +217,19 @@ const sortMovieByGenre = (genreId, genreName) => {
     } else {
     }
   }
+
+  // remove duplicate movies
+  const genreArrIds = genresArr.map((elm) => {
+    return elm.id;
+  });
+  const filteredGenreArr = genresArr.filter((elm, index) => {
+    return genreArrIds.indexOf(elm.id) === index;
+  });
+
+  console.log(filteredGenreArr);
+
   document.getElementById("modalForGenresLabel").innerText = genreName;
-  createElements(genresArr, "movie-collection-by-genre", "position-for-img-and-caption-for-genre", ".position-for-img-and-caption-for-genre", "mask-genre", ".mask-genre");
-  console.log(genresArr);
+  createElements(filteredGenreArr, "movie-collection-by-genre", "position-for-img-and-caption-for-genre", ".position-for-img-and-caption-for-genre", "mask-genre", ".mask-genre");
 }
 
 const fetchAPIForBookSeats = (movieId, movieTitle, moviePosterPath) => {
