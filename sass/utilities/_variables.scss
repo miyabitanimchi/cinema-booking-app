@@ -3,19 +3,9 @@
 $colorForMovieImgContainer: #fefbd8;
 $bColorForMovieAndSeatContainer: rgb(212, 226, 243);
 $colorForOccupiedSeats: rgb(253, 114, 0);
+$themeColor: rgb(160, 200, 250);
 
 // Media query
 $breakpoint-tablet: 820px;
 $breakpoint-mobile: 400px;
 $breakpoint-650: 650px;
-
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-}

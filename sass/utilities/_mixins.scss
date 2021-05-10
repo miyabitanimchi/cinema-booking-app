@@ -25,6 +25,11 @@
   align-items: center;
 }
 
+@mixin display-column {
+  display: flex;
+  flex-direction: column;
+}
+
 @mixin max-screen($break-point) {
   @media screen and (max-width: $break-point) {
     @content;

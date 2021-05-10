@@ -10,7 +10,6 @@
 
   /* width */
 &::-webkit-scrollbar {
-  // width: 0;
   height: 13px;
 }
 
@@ -22,13 +21,13 @@
 
 /* Handle */
 &::-webkit-scrollbar-thumb {
-  background: rgb(160, 200, 250);
+  background: $themeColor;
   border-radius: 10px;
 }
 
 /* Handle on hover */
 &::-webkit-scrollbar-thumb:hover {
-  background: rgb(160, 200, 250);
+  background: $themeColor;
 }
    
     img {
@@ -75,15 +74,10 @@
   }
 }
 
-// #movie-collection-now-playing, #movie-collection-popular {
-//   padding-top: 20px;
-// }
-
 #movie-collection-popular {
   display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
-  // padding-bottom: 20px;
 
     img {
       margin: 0px 5px 0px 5px;
@@ -100,8 +94,9 @@ h1 {
   text-align: center;
   overflow: visible;
   font-weight: lighter;
+  
   .fa-video {
-    color: rgb(160, 200, 250);
+    color: $themeColor;
   }
 }
 

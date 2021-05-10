@@ -14,9 +14,8 @@ body {
     
     .movie-container {
       position: relative;
-      display: flex;
-      flex-direction: column;
       margin-right: 10px;
+      @include display-column;
       @include sizeForMovieAndSeatContainer;
       @include max-screen($breakpoint-tablet) {
         margin-right: 0;
@@ -41,8 +40,7 @@ body {
       .select-box {
         align-self: center;
         @include max-screen($breakpoint-mobile) {
-          display: flex;
-          flex-direction: column;
+         @include display-column;
           align-items: center;
         }
       }
@@ -76,7 +74,6 @@ body {
       #priceTable {
         margin-top: 15px;
         display: flex;
-        // align-self: center;
         justify-content: center;
         @include max-screen($breakpoint-tablet) {
           flex-direction: column;
@@ -95,8 +92,7 @@ body {
     }
 
     .seat-container {
-      display: flex;
-      flex-direction: column;
+      @include display-column;
       margin-left: 10px;
       @include sizeForMovieAndSeatContainer;
       @include max-screen($breakpoint-tablet) {
@@ -153,8 +149,6 @@ body {
             position: relative;
             width: 20px;
             height: 20px;
-
-            
 
             .seat {
               position: absolute;
@@ -244,10 +238,6 @@ body {
     margin-bottom: 30px;
     margin-top: 20px;
     font-size: 18px;
-
-    // #seat-and-price-info {
-    //   margin-top: 30px;
-    // }
   }
 
   .selected {
